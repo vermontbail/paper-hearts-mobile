@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     // fields
     Rigidbody2D rb;
     BoxCollider2D box;
+    Transform attackHb;
 
     // externals
     public bool isAttacking = false;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
+        attackHb = this.transform.Find("Attack");
     }
 
     // Update is called once per frame
@@ -73,19 +75,34 @@ public class PlayerController : MonoBehaviour
             // check for first side
             if (!attackStarted)
             {
-                // start the cycle
+                // start the cycle, first move the hitbox to position
+                attackHb.GetComponent<SpriteRenderer>().enabled = true;
+                attackHb.GetComponent<CapsuleCollider2D>().enabled = true;
 
-                // don't do this after its over
+                switch (lastMovedRight)
+                {
+                    case true:
+                        break;
+                    case false:
+                        break;
+                }
                 attackStarted = true;
             }
             else
             {
+                Vector3 point = this.transform.position;
+                Vector3 axis = new Vector3(0, 0, 1);
+                attackHb.RotateAround(point, axis, Time.deltaTime * 100);
                 // loop through attacking
+
+                // FOR HEART PHYSICS, APPLY FORCE TO THE NORMAL
             }
         }
         else // clean up attacking
         {
-
+            attackHb.GetComponent<SpriteRenderer>().enabled = false;
+            attackHb.GetComponent<CapsuleCollider2D>().enabled = false;
+            attackStarted = false;
         }
         // sliding functionality, this script handles "un-sliding"
         if (isSliding && slideTimer < slideDuration)
