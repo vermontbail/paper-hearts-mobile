@@ -30,9 +30,10 @@ public class PlayerController : MonoBehaviour
     // internals
     float movingSpeed = 4.0f;
     float slidingSpeed = 8.0f;
+    float attackSwingSpeed = 300;
     private bool lastMovedRight = true;
     private bool attackStarted = false;
-    private float attackTimer = 0f;
+    private bool attackSwingingRight = false;
 
     // sliding
     private bool isSliding = false;
@@ -82,18 +83,43 @@ public class PlayerController : MonoBehaviour
                 switch (lastMovedRight)
                 {
                     case true:
+                        attackHb.transform.localPosition = new Vector3(0.8f, 0f, 0f);
+                        attackHb.transform.localEulerAngles = new Vector3(0f, 0f, 90f);
+                        attackSwingingRight = false;
                         break;
                     case false:
+                        attackHb.transform.localPosition = new Vector3(-0.8f, 0f, 0f);
+                        attackHb.transform.localEulerAngles = new Vector3(0f, 0f, -90f);
+                        attackSwingingRight = true;
                         break;
                 }
                 attackStarted = true;
             }
-            else
             {
                 Vector3 point = this.transform.position;
                 Vector3 axis = new Vector3(0, 0, 1);
-                attackHb.RotateAround(point, axis, Time.deltaTime * 100);
+
                 // loop through attacking
+             
+                switch (attackSwingingRight)
+                {
+                    case true:
+                        axis = new Vector3(0, 0, -1);
+                        attackHb.RotateAround(point, axis, Time.deltaTime * attackSwingSpeed);
+                        if (attackHb.localEulerAngles.z <= 90)
+                        {
+                            attackSwingingRight = false;
+                        }
+                        break;
+                    case false:
+                        axis = new Vector3(0, 0, 1);
+                        attackHb.RotateAround(point, axis, Time.deltaTime * attackSwingSpeed);
+                        if (attackHb.eulerAngles.z >= 270)
+                        {
+                            attackSwingingRight = true;
+                        }
+                        break;
+                }
 
                 // FOR HEART PHYSICS, APPLY FORCE TO THE NORMAL
             }
@@ -103,6 +129,7 @@ public class PlayerController : MonoBehaviour
             attackHb.GetComponent<SpriteRenderer>().enabled = false;
             attackHb.GetComponent<CapsuleCollider2D>().enabled = false;
             attackStarted = false;
+            attackSwingingRight = false;
         }
         // sliding functionality, this script handles "un-sliding"
         if (isSliding && slideTimer < slideDuration)
