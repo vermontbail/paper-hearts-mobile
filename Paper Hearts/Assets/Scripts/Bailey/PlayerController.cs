@@ -24,13 +24,17 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    public bool AttackSwingingRight
+    {
+        get { return attackSwingingRight; }
+    }
     
     // NOTE: SET IS SLIDING PROPERTY TO ENFORCE COOLDOWN
 
     // internals
     float movingSpeed = 4.0f;
     float slidingSpeed = 8.0f;
-    float attackSwingSpeed = 300;
+    float attackSwingSpeed = 400;
     private bool lastMovedRight = true;
     private bool attackStarted = false;
     private bool attackSwingingRight = false;
@@ -51,7 +55,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // TESTING COLORS, REMOVE WHEN WE GET ART
         if (slideAttacking)
