@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     BoxCollider2D box;
     Transform attackHb;
+    Transform slideHb;
+    Transform slideAttackHb;
 
     // externals
     public bool isAttacking = false;
@@ -18,9 +20,22 @@ public class PlayerController : MonoBehaviour
         get { return isSliding; }
         set
         {
-            if (slideCooldown <= 0f)
+            if (slideCooldown <= 0f && value == true)
             {
-                isSliding = value;
+                // enable sliding hitbox
+                slideHb.GetComponent<BoxCollider2D>().enabled = true;
+                slideHb.GetComponent<SpriteRenderer>().enabled = true;
+                // set hitbox position
+                if (lastMovedRight)
+                {
+                    slideHb.transform.localPosition = new Vector2(slideHitboxDisplacement.x, slideHitboxDisplacement.y);
+                }
+                else
+                {
+                    slideHb.transform.localPosition = new Vector2(-slideHitboxDisplacement.x, slideHitboxDisplacement.y);
+                }
+
+                 isSliding = value;
             }
         }
     }
@@ -43,15 +58,19 @@ public class PlayerController : MonoBehaviour
     private bool isSliding = false;
     private float slideTimer = 0f;
     private float slideDuration = 0.75f;
-    private float slideAttackDuration = 0.75f;
+    private float slideAttackDuration = 0.5f;
     private float slideAttackTimer = 0f;
     private float slideCooldown = 0f;
     private bool slideAttacking = false;
+    private Vector2 slideHitboxDisplacement = new Vector2(0.5f, 0f);
+    private Vector2 slideAttackHitboxDisplacement = new Vector2(0.25f, 0.35f);
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
         attackHb = this.transform.Find("Attack");
+        slideHb = this.transform.Find("Slide");
+        slideAttackHb = this.transform.Find("SlideAttack");
     }
 
     // Update is called once per frame
@@ -125,7 +144,6 @@ public class PlayerController : MonoBehaviour
                         break;
                 }
 
-                // FOR HEART PHYSICS, APPLY FORCE TO THE NORMAL
             }
         }
         else // clean up attacking
@@ -146,12 +164,16 @@ public class PlayerController : MonoBehaviour
 
             }
 
+            // movement
             switch (lastMovedRight)
             {
                 case true:
                     if (!slideAttacking)
                     {
                         rb.velocity = new Vector2(slidingSpeed, 0.0f);
+                        // when slide timer is zero, move the fastest =
+                        // when slide timer is near max, move at 0.5 slide speed
+
                     }
                     else { MoveRight(); }
                     break;
@@ -179,7 +201,13 @@ public class PlayerController : MonoBehaviour
             slideAttacking = false;
             slideAttackTimer = 0f;
             slideTimer = 0f;
-            // move slide attack hitbox away
+
+            // move slide and slide attack hitbox away
+            slideHb.GetComponent<BoxCollider2D>().enabled = false;
+            slideHb.GetComponent<SpriteRenderer>().enabled = false;
+
+            slideAttackHb.GetComponent<SpriteRenderer>().enabled = false;
+            slideAttackHb.GetComponent<BoxCollider2D>().enabled = false;
         }
 
         // decrement player cooldowns
@@ -206,7 +234,26 @@ public class PlayerController : MonoBehaviour
         {
             // change time remaining on slide directly
             slideDuration = slideAttackDuration;
+            slideTimer = 0f;
+
             slideAttacking = true;
+            // enable slide attack hitbox
+            slideAttackHb.GetComponent<SpriteRenderer>().enabled = true;
+            slideAttackHb.GetComponent<BoxCollider2D>().enabled = true;
+
+            // move into postion
+            if (lastMovedRight)
+            {
+                slideAttackHb.transform.localPosition = new Vector2(slideAttackHitboxDisplacement.x, slideAttackHitboxDisplacement.y);
+            }
+            else
+            {
+                slideAttackHb.transform.localPosition = new Vector2(-slideAttackHitboxDisplacement.x, slideAttackHitboxDisplacement.y);
+            }
+
+            // disable slide hitbox
+            slideHb.GetComponent<SpriteRenderer>().enabled = false;
+            slideHb.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }
