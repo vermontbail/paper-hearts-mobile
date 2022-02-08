@@ -47,13 +47,13 @@ public class HeartScript : MonoBehaviour
             float x, y;
             switch (swingingRight)
             {
-                // fully right: -90
-                // fully left: -270
+                // fully right: 90
+                // fully left: 270
 
                 case true:
-                    // at -270, staight up
-                    // at -180, most horizontal
-                    // at -90, straight down
+                    // at 270, staight up
+                    // at 180, most horizontal
+                    // at 90, straight down
 
                     // independant : z variable
                     // dependant : x and y velocity
