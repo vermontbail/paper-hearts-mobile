@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     // internals
     float movingSpeed = 4.0f;
-    float slidingSpeed = 8.0f;
+    float slidingSpeed = 10.0f;
     float attackSwingSpeed = 400;
     private bool lastMovedRight = true;
     private bool attackStarted = false;
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     private float slideCooldown = 0f;
     private bool slideAttacking = false;
     private Vector2 slideHitboxDisplacement = new Vector2(0.5f, 0f);
-    private Vector2 slideAttackHitboxDisplacement = new Vector2(0.25f, 0.35f);
+    private Vector2 slideAttackHitboxDisplacement = new Vector2(0.30f, 0.15f);
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -153,16 +153,31 @@ public class PlayerController : MonoBehaviour
             attackStarted = false;
             attackSwingingRight = false;
         }
+
         // sliding functionality, this script handles "un-sliding"
-        if (isSliding && slideTimer < slideDuration)
+        // first check for the slide attack override
+        if (slideAttacking && slideTimer < slideAttackDuration)
         {
-            // check for attack
-            if (slideAttacking)
+
+            // change slide attack transform
+            slideAttackHb.transform.localScale = new Vector2(slideTimer / -(2 * slideAttackDuration) + 1f, slideTimer/(2*slideAttackDuration) + 1f);
+
+            if (lastMovedRight)
             {
-                // use the timer as a way to move hitbox and create animation
-
-
+                MoveRight();
             }
+            else MoveLeft();
+
+            // at the end, increment counter
+            slideTimer += Time.deltaTime;
+            // if this counter incremented over, start cooldown
+            if (slideTimer >= slideAttackDuration)
+            {
+                slideCooldown = 0.75f;
+            }
+        }
+        else if (isSliding && slideTimer < slideDuration)
+        {
 
             // movement
             switch (lastMovedRight)
@@ -170,10 +185,8 @@ public class PlayerController : MonoBehaviour
                 case true:
                     if (!slideAttacking)
                     {
-                        rb.velocity = new Vector2(slidingSpeed, 0.0f);
-                        // when slide timer is zero, move the fastest =
-                        // when slide timer is near max, move at 0.5 slide speed
-
+                        rb.velocity = new Vector2((((-1.5f/slideDuration * slideTimer) + 1.5f) * slidingSpeed), 0.0f);
+                        
                     }
                     else { MoveRight(); }
                     break;
@@ -181,7 +194,7 @@ public class PlayerController : MonoBehaviour
                 case false:
                     if (!slideAttacking)
                     {
-                        rb.velocity = new Vector2(-slidingSpeed, 0.0f);
+                        rb.velocity = new Vector2((((-1.5f / slideDuration * slideTimer) + 1.5f) * -slidingSpeed), 0.0f);
                     }
                     else { MoveLeft(); }
                     break;
@@ -233,7 +246,6 @@ public class PlayerController : MonoBehaviour
         if (isSliding)
         {
             // change time remaining on slide directly
-            slideDuration = slideAttackDuration;
             slideTimer = 0f;
 
             slideAttacking = true;

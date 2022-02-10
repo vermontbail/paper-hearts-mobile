@@ -251,7 +251,7 @@ Transform:
   m_GameObject: {fileID: 725684233}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.256, y: 0.35, z: 0}
-  m_LocalScale: {x: 1.519986, y: 0.83984375, z: 1}
+  m_LocalScale: {x: 1.538986, y: 1.5046325, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1564751408}
@@ -1294,7 +1294,7 @@ GameObject:
   - component: {fileID: 2090268323}
   m_Layer: 0
   m_Name: Slide
-  m_TagString: Untagged
+  m_TagString: Slide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

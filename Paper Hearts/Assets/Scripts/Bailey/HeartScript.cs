@@ -8,7 +8,7 @@ public class HeartScript : MonoBehaviour
     Rigidbody2D rb;
     BoxCollider2D box;
 
-    float cooldownTime = 0.5f;
+    float cooldownTime = 0.25f;
     float currentCooldown = 0;
 
     float baseYCoefficient = 0.000012f;
@@ -16,6 +16,12 @@ public class HeartScript : MonoBehaviour
 
     float maxX = 12;
     float minY = 7;
+
+    float slideX = 12f;
+    float slideY = 5f;
+
+    float slideAttackX = 5f;
+    float slideAttackY = 12f;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +38,7 @@ public class HeartScript : MonoBehaviour
             currentCooldown -= Time.deltaTime;
         }
     }
-    // called when the heart hits the 
+    // called when the heart hits any collision
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
@@ -71,6 +77,34 @@ public class HeartScript : MonoBehaviour
 
                     rb.velocity = new Vector2(x, y);
                     break;
+            }
+        }
+        if (col.transform.tag == "Slide" && currentCooldown <= 0)
+        {
+            // set cooldown
+            currentCooldown = cooldownTime;
+            // get position of local transform from colliding box to find player's current facing direction
+            if (col.transform.localPosition.x > 0)
+            {
+                rb.velocity = new Vector2(slideX, slideY);
+            }
+            else
+            {
+                rb.velocity = new Vector2(-slideX, slideY);
+            }
+        }
+        if (col.transform.tag == "SlideAttack" && currentCooldown <= 0)
+        {
+            // set cooldown
+            currentCooldown = cooldownTime;
+            // get position of local transform from colliding box to find player's current facing direction
+            if (col.transform.localPosition.x > 0)
+            {
+                rb.velocity = new Vector2(slideAttackX, slideAttackY);
+            }
+            else
+            {
+                rb.velocity = new Vector2(-slideAttackX, slideAttackY);
             }
         }
     }
