@@ -19,26 +19,27 @@ public class LevelTextUpdator : MonoBehaviour
             Debug.Log("Did not find score text.");
         }
         //End DEBUG
-        string levelString = "Level: " + PlayerPrefs.GetInt("currentLevel", -1);
+        string levelString = "Level: " + PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL, -1);
         level.text = levelString;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Spacebar pressed");
-            if (PlayerPrefs.GetInt("currentLevel") != 12) //This 12 should be an enum in the future - JH
+            if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) != 12) //This 12 should be an enum in the future - JH
             {
-                PlayerPrefs.SetInt("currentLevel", PlayerPrefs.GetInt("currentLevel", -1) + 1);
-                if (PlayerPrefs.GetInt("currentLevel") == 0)
+                PlayerPrefs.SetInt(GameManager.CURRENT_LEVEL, PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL, -1) + 1);
+                if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) == 0)
                 {
-                    PlayerPrefs.SetInt("currentLevel", 1); //Level 0 is reserved for the tutorial. Level 1 is level 1 (wow!)
+                    PlayerPrefs.SetInt(GameManager.CURRENT_LEVEL, 1); //Level 0 is reserved for the tutorial. Level 1 is level 1 (wow!)
                 }
-                if (PlayerPrefs.GetInt("currentLevel") - 1 > PlayerPrefs.GetInt("highestLevel", -1) || PlayerPrefs.GetInt("currentLevel") != 1) //Update highest level if needed.
+                if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) - 1 > PlayerPrefs.GetInt(GameManager.HIGHEST_LEVEL, -1) || PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) != 1) //Update highest level if needed.
                 {
-                    PlayerPrefs.SetInt("highestLevel", PlayerPrefs.GetInt("currentLevel"));
+                    PlayerPrefs.SetInt(GameManager.HIGHEST_LEVEL, PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL));
                 }
                 PlayerPrefs.SetInt("levelChanged", 1);
             }
@@ -46,7 +47,7 @@ public class LevelTextUpdator : MonoBehaviour
         if (PlayerPrefs.GetInt("levelChanged", 0) != 0)
         {
             PlayerPrefs.SetInt("levelChanged", 0);
-            level.text = "Level: " + PlayerPrefs.GetInt("currentLevel");
+            level.text = "Level: " + PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL);
         }
     }
 }

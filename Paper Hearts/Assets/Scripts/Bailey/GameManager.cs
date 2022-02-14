@@ -7,6 +7,27 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     PlayerController player;
 
+    public enum levels
+    {
+        NoLevel = -1,
+        Tutorial = 0,
+        LvlOne = 1,
+        LvlTwo = 2,
+        LvlThree = 3,
+        LvlFour = 4,
+        LvlFive = 5,
+        BossOne = 6,
+        LvlSix = 7,
+        LvlSeven = 8,
+        LvlEight = 9,
+        LvlNine = 10,
+        LvlTen = 11,
+        BossTwo = 12,
+    }
+    public static string CURRENT_LEVEL = "currentLevel";
+    public static string HIGHEST_LEVEL = "highestLevel";
+    public static string LEVEL_CHANGE = "levelChange";
+
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
