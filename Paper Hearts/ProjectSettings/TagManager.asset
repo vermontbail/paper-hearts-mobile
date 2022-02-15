@@ -7,6 +7,8 @@ TagManager:
   - Attack
   - Slide
   - SlideAttack
+  - Block
+  - Panel
   layers:
   - Default
   - TransparentFX

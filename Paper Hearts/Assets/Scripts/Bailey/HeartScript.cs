@@ -37,6 +37,8 @@ public class HeartScript : MonoBehaviour
         {
             currentCooldown -= Time.deltaTime;
         }
+        // rotate the heart
+        this.transform.Rotate(new Vector3(0f, 0f, -rb.velocity.x));
     }
     // called when the heart hits any collision
     void OnTriggerEnter2D(Collider2D col)
@@ -106,6 +108,24 @@ public class HeartScript : MonoBehaviour
             {
                 rb.velocity = new Vector2(-slideAttackX, slideAttackY);
             }
+        }
+
+        if (col.transform.tag == "Panel" && !col.GetComponent<PanelScript>().Flipped)
+        {
+            // set color, play animation, however it should work
+            col.GetComponent<PanelScript>().Flip();
+            // increment score
+            FindObjectOfType<GameManager>().AddScore();
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.transform.tag == "Block")
+        {
+            // deactivate block
+            col.gameObject.SetActive(false);
+            // increment score
+            FindObjectOfType<GameManager>().AddScore();
         }
     }
 }

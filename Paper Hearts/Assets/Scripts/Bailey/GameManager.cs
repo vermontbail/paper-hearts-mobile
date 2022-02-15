@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     PlayerController player;
+    private int totalScore = 0;
+    private int currentScore = 0;
+    private bool hasWon = false;
 
     public enum levels
     {
@@ -31,6 +34,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
+
+        // get number of score
+        totalScore = GameObject.Find("Scoreblocks").transform.childCount;
+
     }
 
     // Update is called once per frame
@@ -66,6 +73,20 @@ public class GameManager : MonoBehaviour
             {
                 player.MoveLeft();
             }
+        }
+
+        // placeholder text
+        if (hasWon)
+        {
+            GameObject.Find("Placeholder Next").transform.position = new Vector2(0f, 0f);
+        }
+    }
+    public void AddScore()
+    {
+        currentScore++;
+        if (currentScore >= totalScore)
+        {
+            hasWon = true;
         }
     }
 }

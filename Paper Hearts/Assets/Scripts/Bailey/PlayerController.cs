@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         get { return isSliding; }
         set
         {
-            if (slideCooldown <= 0f && value == true)
+            if (slideCooldown <= 0f && !slideAttacking && value == true)
             {
                 // enable sliding hitbox
                 slideHb.GetComponent<BoxCollider2D>().enabled = true;
