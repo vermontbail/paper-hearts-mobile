@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class LevelTextUpdator : MonoBehaviour
 {
     public TextMeshProUGUI level;
+    private int finalLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class LevelTextUpdator : MonoBehaviour
         //End DEBUG
         string levelString = "Level: " + PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL, -1);
         level.text = levelString;
+        Array levelValues = Enum.GetValues(typeof(GameManager.levels));
+        finalLevel = (int)levelValues.GetValue(levelValues.Length - 1);
     }
 
     // Update is called once per frame
@@ -30,14 +34,14 @@ public class LevelTextUpdator : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Spacebar pressed");
-            if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) != 12) //This 12 should be an enum in the future - JH
+            if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) != finalLevel)
             {
                 PlayerPrefs.SetInt(GameManager.CURRENT_LEVEL, PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL, -1) + 1);
-                if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) == 0)
+                if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) == (int)GameManager.levels.Tutorial)
                 {
-                    PlayerPrefs.SetInt(GameManager.CURRENT_LEVEL, 1); //Level 0 is reserved for the tutorial. Level 1 is level 1 (wow!)
+                    PlayerPrefs.SetInt(GameManager.CURRENT_LEVEL, (int)GameManager.levels.LvlOne);
                 }
-                if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) - 1 > PlayerPrefs.GetInt(GameManager.HIGHEST_LEVEL, -1) || PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) != 1) //Update highest level if needed.
+                if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) - 1 > PlayerPrefs.GetInt(GameManager.HIGHEST_LEVEL, (int)GameManager.levels.NoLevel) || PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) != (int)GameManager.levels.LvlOne) //Update highest level if needed.
                 {
                     PlayerPrefs.SetInt(GameManager.HIGHEST_LEVEL, PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL));
                 }
