@@ -18,7 +18,7 @@ public class HeartScript : MonoBehaviour
     float minY = 7;
 
     float slideX = 12f;
-    float slideY = 5f;
+    float slideY = 8f;
 
     float slideAttackX = 5f;
     float slideAttackY = 12f;

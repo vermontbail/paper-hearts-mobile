@@ -86,7 +86,12 @@ public class GameManager : MonoBehaviour
         currentScore++;
         if (currentScore >= totalScore)
         {
-            hasWon = true;
+            LevelComplete();
         }
+    }
+    public void LevelComplete()
+    {
+        hasWon = true;
+        // anything else here
     }
 }
