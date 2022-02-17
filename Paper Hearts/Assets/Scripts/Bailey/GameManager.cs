@@ -10,12 +10,7 @@ public class GameManager : MonoBehaviour
     PlayerController player;
     private int totalScore = 0;
     private int currentScore = 0;
-    private int highestLevel = 12; //Somewhat a magic number, change this if level numbers change.
     private bool hasWon = false;
-    private bool runGame = true;
-    private float countdownTimeThird = .5f; //Make the time 1/3 of how long, in seconds, you want the player to wait before playing.
-    private float countdown = 0f;
-    private int countdownCounter = 0;
     private TextMeshProUGUI promptText;
     //Consts
     public enum levels
@@ -41,6 +36,8 @@ public class GameManager : MonoBehaviour
     public static string GAMEPLAY_SCENE = "Gameplay"; //Name of the scene where gameplay takes place.
     //Public gameplay variables
     public static bool gameplayStarting = false;
+    public static bool runGame = true;
+    public static int highestLevel = 12; //Somewhat a magic number, change this if level numbers change.
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
@@ -53,15 +50,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameplayStarting)
-        {
-            gameplayStarting = false;
-            runGame = false;
-            promptText = GetComponent<TextMeshProUGUI>();
-            promptText.text = "3";
-            countdown = countdownTimeThird;
-            countdownCounter = 0;
-        }
+        
         if (runGame)
         {
             // check for attack, set to false if isnt
@@ -100,43 +89,6 @@ public class GameManager : MonoBehaviour
             if (hasWon)
             {
                 GameObject.Find("Placeholder Next").transform.position = new Vector2(0f, 0f);
-            }
-
-            //***************************DEBUG*********************
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                gameplayStarting = true;
-                if (PlayerPrefs.GetInt(CURRENT_LEVEL) != highestLevel)
-                {
-                    PlayerPrefs.SetInt(CURRENT_LEVEL, PlayerPrefs.GetInt(CURRENT_LEVEL, -1) + 1);
-                    if (PlayerPrefs.GetInt(CURRENT_LEVEL) == (int)levels.Tutorial)
-                    {
-                        PlayerPrefs.SetInt(CURRENT_LEVEL, (int)levels.LvlOne);
-                    }
-                    if (PlayerPrefs.GetInt(CURRENT_LEVEL) - 1 > PlayerPrefs.GetInt(HIGHEST_LEVEL, (int)levels.NoLevel) || PlayerPrefs.GetInt(CURRENT_LEVEL) != (int)levels.LvlOne) //Update highest level if needed.
-                    {
-                        PlayerPrefs.SetInt(HIGHEST_LEVEL, PlayerPrefs.GetInt(CURRENT_LEVEL));
-                    }
-                    PlayerPrefs.SetInt(LEVEL_CHANGE, 1);
-                }
-            }
-        }
-        else
-        {
-            countdown -= Time.deltaTime;
-        }
-        if(!runGame && countdown <= 0f)
-        {
-            countdown = countdownTimeThird;
-            countdownCounter++;
-            if(countdownCounter < 3)
-            {
-                promptText.text = (3 - countdownCounter).ToString();
-            }
-            else
-            {
-                runGame = true;
-                promptText.text = "Press spacebar to advance level.";
             }
         }
     }
