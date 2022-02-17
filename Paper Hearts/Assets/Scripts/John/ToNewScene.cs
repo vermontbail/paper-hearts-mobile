@@ -21,4 +21,10 @@ public class ToNewScene : MonoBehaviour
     {
 
     }
+
+    public void LoadLevel1()
+    {
+        PlayerPrefs.SetInt(GameManager.CURRENT_LEVEL, 1);
+        LoadScene("Gameplay");
+    }
 }

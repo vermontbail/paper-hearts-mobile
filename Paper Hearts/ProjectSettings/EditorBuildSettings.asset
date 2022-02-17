@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JohnTestScenes/MainMenu.unity
     guid: 22f2228e7eb079e449c9a0209eec1730
+  - enabled: 1
+    path: Assets/Scenes/JohnTestScenes/Gameplay.unity
+    guid: 8adeabc55d8cdf34f8d05e129ac1fd67
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: caaf47659c856254a83fb398af76b457, type: 2}
