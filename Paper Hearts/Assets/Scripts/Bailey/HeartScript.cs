@@ -8,10 +8,13 @@ public class HeartScript : MonoBehaviour
     Rigidbody2D rb;
     BoxCollider2D box;
 
-    float totalCloneTime = 10f;
+    const float totalCloneTime = 10f;
     float currentTimer = 0f;
     GameObject heartClone = null;
     public bool isClone = false;
+
+    float currentMultiplier = 1f;
+    const float chargeMultiplier = 1.5f;
 
     float cooldownTime = 0.25f;
     float currentCooldown = 0;
@@ -56,6 +59,13 @@ public class HeartScript : MonoBehaviour
         }
         // rotate the heart
         this.transform.Rotate(new Vector3(0f, 0f, -rb.velocity.x));
+
+        // set current power based on player state
+        if (FindObjectOfType<PlayerController>().PowerUp == PowerUp.Charge)
+        {
+            currentMultiplier = chargeMultiplier;
+        }
+        else currentMultiplier = 1f;
     }
     // called when the heart hits any collision
     void OnTriggerEnter2D(Collider2D col)
@@ -88,13 +98,13 @@ public class HeartScript : MonoBehaviour
                     y = baseYCoefficient * Mathf.Pow(z - 180, 3) + minY;
                     x = -baseXCoefficient * Mathf.Pow(z - 180f, 2) + maxX;
 
-                    rb.velocity = new Vector2(x, y);
+                    rb.velocity = new Vector2(x * chargeMultiplier, y * chargeMultiplier);
                     break;
                 case false:
                     y = -baseYCoefficient * Mathf.Pow(z - 180, 3) + minY;
                     x = baseXCoefficient * Mathf.Pow(z - 180f, 2) - maxX;
 
-                    rb.velocity = new Vector2(x, y);
+                    rb.velocity = new Vector2(x * chargeMultiplier, y * chargeMultiplier);
                     break;
             }
         }

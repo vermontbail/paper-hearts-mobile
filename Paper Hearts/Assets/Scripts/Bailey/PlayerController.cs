@@ -43,12 +43,16 @@ public class PlayerController : MonoBehaviour
     {
         get { return attackSwingingRight; }
     }
-    
+    public PowerUp PowerUp
+    {
+        get { return currentPowerUp; }
+    }
+
     // NOTE: SET IS SLIDING PROPERTY TO ENFORCE COOLDOWN
 
     // internals
-    float movingSpeed = 4.0f;
-    float slidingSpeed = 10.0f;
+    const float movingSpeed = 4.0f;
+    const float slidingSpeed = 10.0f;
     float attackSwingSpeed = 400;
     private bool lastMovedRight = true;
     private bool attackStarted = false;
@@ -57,8 +61,8 @@ public class PlayerController : MonoBehaviour
     // sliding
     private bool isSliding = false;
     private float slideTimer = 0f;
-    private float slideDuration = 0.75f;
-    private float slideAttackDuration = 0.5f;
+    private const float slideDuration = 0.75f;
+    private const float slideAttackDuration = 0.5f;
     private float slideAttackTimer = 0f;
     private float slideCooldown = 0f;
     private bool slideAttacking = false;
@@ -66,9 +70,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 slideAttackHitboxDisplacement = new Vector2(0.30f, 0.15f);
 
     private PowerUp currentPowerUp = PowerUp.None;
-    private float bombDuration = 10f;
-    private float cardDuration = 10f;
-    private float chargeDuration = 10f;
+    private const float bombDuration = 10f;
+    private const float cardDuration = 10f;
+    private const float chargeDuration = 10f;
     private float powerUpTimer = 0f;
     void Start()
     {
