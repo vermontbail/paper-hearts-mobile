@@ -64,6 +64,12 @@ public class PlayerController : MonoBehaviour
     private bool slideAttacking = false;
     private Vector2 slideHitboxDisplacement = new Vector2(0.5f, 0f);
     private Vector2 slideAttackHitboxDisplacement = new Vector2(0.30f, 0.15f);
+
+    private PowerUp currentPowerUp = PowerUp.None;
+    private float bombDuration = 10f;
+    private float cardDuration = 10f;
+    private float chargeDuration = 10f;
+    private float powerUpTimer = 0f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -76,26 +82,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // TESTING COLORS, REMOVE WHEN WE GET ART
-        if (slideAttacking)
-        {
-            GetComponent<SpriteRenderer>().color = Color.blue;
-        }
-        else if (isSliding)
-        {
-            GetComponent<SpriteRenderer>().color = Color.green;
-        }
-        else if (isAttacking)
-        {
-            GetComponent<SpriteRenderer>().color = Color.cyan;
-        }
-        else { GetComponent<SpriteRenderer>().color = Color.white; }
-
-
-
         // attacking functionality, game manager handles "un-attacking"
         if (isAttacking)
         {
+            
             // check for first side
             if (!attackStarted)
             {
@@ -117,6 +107,8 @@ public class PlayerController : MonoBehaviour
                         break;
                 }
                 attackStarted = true;
+                // send an attack if powered up
+                CreateProjectile();
             }
             {
                 Vector3 point = this.transform.position;
@@ -131,6 +123,8 @@ public class PlayerController : MonoBehaviour
                         attackHb.RotateAround(point, axis, Time.deltaTime * attackSwingSpeed);
                         if (attackHb.localEulerAngles.z <= 90)
                         {
+                            // create attack when switching directions
+                            CreateProjectile();
                             attackSwingingRight = false;
                         }
                         break;
@@ -139,6 +133,7 @@ public class PlayerController : MonoBehaviour
                         attackHb.RotateAround(point, axis, Time.deltaTime * attackSwingSpeed);
                         if (attackHb.eulerAngles.z >= 270)
                         {
+                            CreateProjectile();
                             attackSwingingRight = true;
                         }
                         break;
@@ -228,6 +223,24 @@ public class PlayerController : MonoBehaviour
         {
             slideCooldown -= Time.deltaTime;
         }
+
+        // increase time spent in the powerup state
+        if (currentPowerUp != PowerUp.None)
+        {
+            powerUpTimer += Time.deltaTime;
+        }
+
+        // deactivate expired powerups
+        if (
+            powerUpTimer >= chargeDuration
+         || powerUpTimer >= bombDuration
+         || powerUpTimer >= cardDuration)
+        {
+            currentPowerUp = PowerUp.None;
+        }
+
+        // debug colors
+        TestingColors();
     }
     // Movement
     public void MoveRight()
@@ -266,6 +279,49 @@ public class PlayerController : MonoBehaviour
             // disable slide hitbox
             slideHb.GetComponent<SpriteRenderer>().enabled = false;
             slideHb.GetComponent<BoxCollider2D>().enabled = false;
+
+            // test for bomb powerup
+            CreateExplosion();
+        }
+    }
+    private void TestingColors()
+    {
+        // TESTING COLORS, REMOVE WHEN WE GET ART
+        if (slideAttacking)
+        {
+            GetComponent<SpriteRenderer>().color = Color.blue;
+        }
+        else if (isSliding)
+        {
+            GetComponent<SpriteRenderer>().color = Color.green;
+        }
+        else if (isAttacking)
+        {
+            GetComponent<SpriteRenderer>().color = Color.cyan;
+        }
+        else { GetComponent<SpriteRenderer>().color = Color.white; }
+    }
+    public void GainPowerUp(PowerUp p)
+    {
+
+    }
+    private void CreateProjectile()
+    {
+        // guard code
+        if (currentPowerUp == PowerUp.Card)
+        {
+            // create projectile here
+
+        }
+    }
+    private void CreateExplosion()
+    {
+        // guard code
+        if (currentPowerUp == PowerUp.Bomb)
+        {
+            // remove powerup
+            // create explosion
+            // handle explosion accordingly
         }
     }
 }

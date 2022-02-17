@@ -8,6 +8,11 @@ public class HeartScript : MonoBehaviour
     Rigidbody2D rb;
     BoxCollider2D box;
 
+    float totalCloneTime = 10f;
+    float currentTimer = 0f;
+    GameObject heartClone = null;
+    public bool isClone = false;
+
     float cooldownTime = 0.25f;
     float currentCooldown = 0;
 
@@ -27,6 +32,18 @@ public class HeartScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
+    }
+
+    public void Split()
+    {
+        // this one is intense
+        if (heartClone == null)
+        {
+            // create clone
+            // link to this object and set as clone
+            // give an expiration timer
+            // 
+        }
     }
 
     // Update is called once per frame
@@ -126,6 +143,12 @@ public class HeartScript : MonoBehaviour
             col.gameObject.SetActive(false);
             // increment score
             FindObjectOfType<GameManager>().AddScore();
+        }
+        // check for powerup box
+        if (col.transform.tag == "PowerUp Block")
+        {
+            // create the object's correct powerup
+
         }
     }
 }
