@@ -10,6 +10,10 @@ public class ToNewScene : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        if(sceneName == GameManager.GAMEPLAY_SCENE)
+        {
+            GameManager.gameplayStarting = true;
+        }
     }
 
     private void OnEnable()

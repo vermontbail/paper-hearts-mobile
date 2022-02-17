@@ -659,7 +659,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press spacebar to advanve level.
+  m_text: Press spacebar to advance level.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e22c02d6b57a1484495a3f62e6c5de77, type: 2}
   m_sharedMaterial: {fileID: -2628053014521931544, guid: e22c02d6b57a1484495a3f62e6c5de77, type: 2}

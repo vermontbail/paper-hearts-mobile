@@ -30,27 +30,9 @@ public class LevelTextUpdator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (PlayerPrefs.GetInt(GameManager.LEVEL_CHANGE, 0) != 0)
         {
-            Debug.Log("Spacebar pressed");
-            if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) != finalLevel)
-            {
-                PlayerPrefs.SetInt(GameManager.CURRENT_LEVEL, PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL, -1) + 1);
-                if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) == (int)GameManager.levels.Tutorial)
-                {
-                    PlayerPrefs.SetInt(GameManager.CURRENT_LEVEL, (int)GameManager.levels.LvlOne);
-                }
-                if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) - 1 > PlayerPrefs.GetInt(GameManager.HIGHEST_LEVEL, (int)GameManager.levels.NoLevel) || PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) != (int)GameManager.levels.LvlOne) //Update highest level if needed.
-                {
-                    PlayerPrefs.SetInt(GameManager.HIGHEST_LEVEL, PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL));
-                }
-                PlayerPrefs.SetInt("levelChanged", 1);
-            }
-        }
-        if (PlayerPrefs.GetInt("levelChanged", 0) != 0)
-        {
-            PlayerPrefs.SetInt("levelChanged", 0);
+            PlayerPrefs.SetInt(GameManager.LEVEL_CHANGE, 0);
             level.text = "Level: " + PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL);
         }
     }
