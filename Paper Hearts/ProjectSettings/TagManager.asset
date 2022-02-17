@@ -9,6 +9,7 @@ TagManager:
   - SlideAttack
   - Block
   - Panel
+  - PowerUp Block
   layers:
   - Default
   - TransparentFX
