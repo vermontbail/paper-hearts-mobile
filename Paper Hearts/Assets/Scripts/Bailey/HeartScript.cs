@@ -98,13 +98,13 @@ public class HeartScript : MonoBehaviour
                     y = baseYCoefficient * Mathf.Pow(z - 180, 3) + minY;
                     x = -baseXCoefficient * Mathf.Pow(z - 180f, 2) + maxX;
 
-                    rb.velocity = new Vector2(x * chargeMultiplier, y * chargeMultiplier);
+                    rb.velocity = new Vector2(x * currentMultiplier, y * currentMultiplier);
                     break;
                 case false:
                     y = -baseYCoefficient * Mathf.Pow(z - 180, 3) + minY;
                     x = baseXCoefficient * Mathf.Pow(z - 180f, 2) - maxX;
 
-                    rb.velocity = new Vector2(x * chargeMultiplier, y * chargeMultiplier);
+                    rb.velocity = new Vector2(x * currentMultiplier, y * currentMultiplier);
                     break;
             }
         }
