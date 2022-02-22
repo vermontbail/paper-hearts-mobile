@@ -14,8 +14,7 @@ public enum PowerUp
 }
 public class PowerUpScript : MonoBehaviour
 {
-    [SerializeField]
-    private PowerUp powerUp;
+    public PowerUp powerUp;
     Rigidbody2D rb;
     BoxCollider2D box;
     CircleCollider2D circle;
@@ -32,5 +31,13 @@ public class PowerUpScript : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.transform.tag == "Player")
+        {
+            col.transform.GetComponentInParent<PlayerController>().GainPowerUp(powerUp);
+            Object.Destroy(this.gameObject);
+        }
     }
 }

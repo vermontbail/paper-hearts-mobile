@@ -158,7 +158,11 @@ public class HeartScript : MonoBehaviour
         if (col.transform.tag == "PowerUp Block")
         {
             // create the object's correct powerup
-
+            col.transform.GetComponent<PowerUpBlock>().CreatePowerUp();
+            // deactivate block
+            col.gameObject.SetActive(false);
+            // increment score
+            FindObjectOfType<GameManager>().AddScore();
         }
     }
 }

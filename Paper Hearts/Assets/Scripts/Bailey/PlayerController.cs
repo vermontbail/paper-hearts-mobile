@@ -63,13 +63,14 @@ public class PlayerController : MonoBehaviour
     private float slideTimer = 0f;
     private const float slideDuration = 0.75f;
     private const float slideAttackDuration = 0.5f;
-    private float slideAttackTimer = 0f;
     private float slideCooldown = 0f;
     private bool slideAttacking = false;
     private Vector2 slideHitboxDisplacement = new Vector2(0.5f, 0f);
     private Vector2 slideAttackHitboxDisplacement = new Vector2(0.30f, 0.15f);
 
     private PowerUp currentPowerUp = PowerUp.None;
+    private float cardAttackTimer = 0f;
+    private float cardAttackCooldown = 0.4f;
     private const float bombDuration = 10f;
     private const float cardDuration = 10f;
     private const float chargeDuration = 10f;
@@ -211,7 +212,6 @@ public class PlayerController : MonoBehaviour
         { 
             isSliding = false;
             slideAttacking = false;
-            slideAttackTimer = 0f;
             slideTimer = 0f;
 
             // move slide and slide attack hitbox away
@@ -222,26 +222,8 @@ public class PlayerController : MonoBehaviour
             slideAttackHb.GetComponent<BoxCollider2D>().enabled = false;
         }
 
-        // decrement player cooldowns
-        if (slideCooldown > 0)
-        {
-            slideCooldown -= Time.deltaTime;
-        }
-
-        // increase time spent in the powerup state
-        if (currentPowerUp != PowerUp.None)
-        {
-            powerUpTimer += Time.deltaTime;
-        }
-
-        // deactivate expired powerups
-        if (
-            powerUpTimer >= chargeDuration
-         || powerUpTimer >= bombDuration
-         || powerUpTimer >= cardDuration)
-        {
-            currentPowerUp = PowerUp.None;
-        }
+        // cooldowns
+        DecrementCooldowns();
 
         // debug colors
         TestingColors();
@@ -312,7 +294,7 @@ public class PlayerController : MonoBehaviour
     private void CreateProjectile()
     {
         // guard code
-        if (currentPowerUp == PowerUp.Card)
+        if (currentPowerUp == PowerUp.Card && cardAttackTimer <= 0f)
         {
             // create projectile here
 
@@ -326,6 +308,34 @@ public class PlayerController : MonoBehaviour
             // remove powerup
             // create explosion
             // handle explosion accordingly
+        }
+    }
+    private void DecrementCooldowns()
+    {
+        // decrement player cooldowns
+        if (slideCooldown > 0)
+        {
+            slideCooldown -= Time.deltaTime;
+        }
+
+        if (cardAttackTimer > 0)
+        {
+            cardAttackTimer -= Time.deltaTime;
+        }
+
+        // increase time spent in the powerup state
+        if (currentPowerUp != PowerUp.None)
+        {
+            powerUpTimer += Time.deltaTime;
+        }
+
+        // deactivate expired powerups
+        if (
+            powerUpTimer >= chargeDuration
+         || powerUpTimer >= bombDuration
+         || powerUpTimer >= cardDuration)
+        {
+            currentPowerUp = PowerUp.None;
         }
     }
 }
