@@ -44,8 +44,15 @@ public class HeartScript : MonoBehaviour
         {
             // create clone
             // link to this object and set as clone
-            // give an expiration timer
-            // 
+            heartClone = GameObject.Instantiate(this.gameObject);
+            heartClone.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, -3f);
+            heartClone.GetComponent<HeartScript>().isClone = true;
+
+            // DEBUG TO differentiate CLONED HEART, NEW ASSET FUTURE?
+            heartClone.GetComponent<SpriteRenderer>().color = Color.grey;
+
+            // alter tractory to opposite direction
+            heartClone.GetComponent<Rigidbody2D>().velocity = new Vector2(-rb.velocity.x, -rb.velocity.y);
         }
     }
 
@@ -66,6 +73,13 @@ public class HeartScript : MonoBehaviour
             currentMultiplier = chargeMultiplier;
         }
         else currentMultiplier = 1f;
+
+        // if this heart is a duplicate, tick down and check for self destroy
+        if (isClone == true && currentTimer >= totalCloneTime)
+        {
+            GameObject.Destroy(this.gameObject);
+        }
+        else { currentTimer += Time.deltaTime; }
     }
     // called when the heart hits any collision
     void OnTriggerEnter2D(Collider2D col)

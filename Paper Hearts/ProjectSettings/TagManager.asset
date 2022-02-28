@@ -10,6 +10,8 @@ TagManager:
   - Block
   - Panel
   - PowerUp Block
+  - Heart
+  - Explosion
   layers:
   - Default
   - TransparentFX

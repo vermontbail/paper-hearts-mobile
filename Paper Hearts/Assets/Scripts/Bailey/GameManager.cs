@@ -53,37 +53,9 @@ public class GameManager : MonoBehaviour
         
         if (runGame)
         {
-            // check for attack, set to false if isnt
-            if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow) && !player.IsSliding)
-            {
-                player.isAttacking = true;
-            }
-            else player.isAttacking = false;
-
-            // check for slide
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                player.IsSliding = true;
-                player.isAttacking = false;
-            }
-            // check for slide attack
-            if (Input.GetKeyDown(KeyCode.UpArrow) && player.IsSliding)
-            {
-                player.SlideAttack();
-            }
-
-            // check for normal movement
-            if (!player.isAttacking && !player.IsSliding)
-            {
-                if (Input.GetKey(KeyCode.RightArrow))
-                {
-                    player.MoveRight();
-                }
-                if (Input.GetKey(KeyCode.LeftArrow))
-                {
-                    player.MoveLeft();
-                }
-            }
+            // check keyboard input
+            KeyboardInput();
+            // check 
 
             // placeholder text
             if (hasWon)
@@ -104,5 +76,40 @@ public class GameManager : MonoBehaviour
     {
         hasWon = true;
         // anything else here
+    }
+    private void KeyboardInput()
+    {
+
+        // check for attack, set to false if isnt
+        if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow) && !player.IsSliding)
+        {
+            player.isAttacking = true;
+        }
+        else player.isAttacking = false;
+
+        // check for slide
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            player.IsSliding = true;
+            player.isAttacking = false;
+        }
+        // check for slide attack
+        if (Input.GetKeyDown(KeyCode.UpArrow) && player.IsSliding)
+        {
+            player.SlideAttack();
+        }
+
+        // check for normal movement
+        if (!player.isAttacking && !player.IsSliding)
+        {
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                player.MoveRight();
+            }
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                player.MoveLeft();
+            }
+        }
     }
 }

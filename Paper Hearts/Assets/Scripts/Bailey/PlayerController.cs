@@ -51,9 +51,12 @@ public class PlayerController : MonoBehaviour
     // NOTE: SET IS SLIDING PROPERTY TO ENFORCE COOLDOWN
 
     // internals
+    HeartScript heart;
+
     const float movingSpeed = 4.0f;
     const float slidingSpeed = 10.0f;
-    float attackSwingSpeed = 400;
+    const float baseAttackSwingSpeed = 400;
+    float attackSwingSpeed = 0;
     private bool lastMovedRight = true;
     private bool attackStarted = false;
     private bool attackSwingingRight = false;
@@ -69,6 +72,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 slideAttackHitboxDisplacement = new Vector2(0.30f, 0.15f);
 
     private PowerUp currentPowerUp = PowerUp.None;
+    [SerializeField]
+    GameObject cardProjectile;
+    [SerializeField]
+    GameObject explosionProjectile;
     private float cardAttackTimer = 0f;
     private float cardAttackCooldown = 0.4f;
     private const float bombDuration = 10f;
@@ -82,6 +89,7 @@ public class PlayerController : MonoBehaviour
         attackHb = this.transform.Find("Attack");
         slideHb = this.transform.Find("Slide");
         slideAttackHb = this.transform.Find("SlideAttack");
+        heart = FindObjectOfType<HeartScript>(); // the first heart
     }
 
     // Update is called once per frame
@@ -120,9 +128,15 @@ public class PlayerController : MonoBehaviour
                 Vector3 axis = new Vector3(0, 0, 1);
 
                 // loop through attacking
+                if (currentPowerUp != PowerUp.Charge)
+                {
+                    attackSwingSpeed = baseAttackSwingSpeed;
+                }
+                else { attackSwingSpeed = baseAttackSwingSpeed * 1.5f; }
              
                 switch (attackSwingingRight)
                 {
+                    
                     case true:
                         axis = new Vector3(0, 0, -1);
                         attackHb.RotateAround(point, axis, Time.deltaTime * attackSwingSpeed);
@@ -285,10 +299,37 @@ public class PlayerController : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().color = Color.cyan;
         }
-        else { GetComponent<SpriteRenderer>().color = Color.white; }
+        else {
+            switch (currentPowerUp)
+            {
+                case PowerUp.Bomb:
+                    GetComponent<SpriteRenderer>().color = Color.magenta;
+                    break;
+
+                case PowerUp.Charge:
+                    GetComponent<SpriteRenderer>().color = Color.gray;
+                    break;
+                case PowerUp.Card:
+                    GetComponent<SpriteRenderer>().color = Color.yellow;
+                    break;
+                case PowerUp.None:
+                default:
+                    GetComponent<SpriteRenderer>().color = Color.white;
+                    break;
+            }
+        }
     }
     public void GainPowerUp(PowerUp p)
     {
+        if (p == PowerUp.Split)
+        {
+            heart.Split();
+            return;
+        }
+        // remove any existing powerup stuff
+        currentPowerUp = p;
+        powerUpTimer = 0f;
+        // play an animation as well
 
     }
     private void CreateProjectile()
@@ -297,7 +338,10 @@ public class PlayerController : MonoBehaviour
         if (currentPowerUp == PowerUp.Card && cardAttackTimer <= 0f)
         {
             // create projectile here
-
+            GameObject instance = Instantiate(cardProjectile);
+            instance.transform.position = new Vector2(this.transform.position.x, this.transform.position.y);
+            // put on cooldown
+            cardAttackTimer = cardAttackCooldown;
         }
     }
     private void CreateExplosion()
@@ -306,8 +350,10 @@ public class PlayerController : MonoBehaviour
         if (currentPowerUp == PowerUp.Bomb)
         {
             // remove powerup
+            currentPowerUp = PowerUp.None;
             // create explosion
-            // handle explosion accordingly
+            GameObject instance = Instantiate(explosionProjectile);
+            instance.transform.position = new Vector2(this.transform.position.x, this.transform.position.y);
         }
     }
     private void DecrementCooldowns()
@@ -336,6 +382,7 @@ public class PlayerController : MonoBehaviour
          || powerUpTimer >= cardDuration)
         {
             currentPowerUp = PowerUp.None;
+            powerUpTimer = 0f;
         }
     }
 }
