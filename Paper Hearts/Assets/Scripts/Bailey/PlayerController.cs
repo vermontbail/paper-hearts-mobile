@@ -256,7 +256,7 @@ public class PlayerController : MonoBehaviour
 
     public void SlideAttack()
     {
-        if (isSliding)
+        if (isSliding && !slideAttacking)
         {
             // change time remaining on slide directly
             slideTimer = 0f;

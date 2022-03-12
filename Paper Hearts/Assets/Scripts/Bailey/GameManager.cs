@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     private int currentScore = 0;
     private bool hasWon = false;
     private TextMeshProUGUI promptText;
+    private float screenMidWidth;
+    private float screenSwipeHeight;
+    private Touch firstTouch;
+    private Dictionary<int, float> initialTouchYValues;
     //Consts
     public enum levels
     {
@@ -45,6 +49,11 @@ public class GameManager : MonoBehaviour
         // get number of score
         totalScore = GameObject.Find("Scoreblocks").transform.childCount;
 
+
+        screenMidWidth = (float)Screen.width / 2.0f;
+        screenSwipeHeight = (float)Screen.height / 8.0f;
+
+        initialTouchYValues = new Dictionary<int, float>();
     }
 
     // Update is called once per frame
@@ -55,7 +64,8 @@ public class GameManager : MonoBehaviour
         {
             // check keyboard input
             KeyboardInput();
-            // check 
+            // check mobile input
+            MobileInput();
 
             // placeholder text
             if (hasWon)
@@ -110,6 +120,72 @@ public class GameManager : MonoBehaviour
             {
                 player.MoveLeft();
             }
+        }
+    }
+    private void MobileInput()
+    {
+        // get touches
+        Touch[] touchArray = Input.touches;
+        
+        if (touchArray.Length == 1 && !player.IsSliding) // one finger
+        {
+            if (touchArray[0].position.x >= screenMidWidth)
+            {
+                player.MoveRight();
+            }
+            else
+            {
+                player.MoveLeft();
+            }
+            firstTouch = touchArray[0];
+        }
+        if (touchArray.Length >= 2)
+        {
+            if (!player.IsSliding)
+            {
+                player.isAttacking = true;
+            }
+
+            foreach (Touch t in touchArray)
+            {
+                // not counting first finger
+                if (t.fingerId != firstTouch.fingerId)
+                {
+                    // log to see we know the first place it's been
+                    if (t.phase == TouchPhase.Began)
+                    {
+                        if (initialTouchYValues.ContainsKey(t.fingerId))
+                        {
+                            initialTouchYValues[t.fingerId] = t.position.y;
+                        }
+                        else
+                        {
+                            initialTouchYValues.Add(t.fingerId, t.position.y);
+                        }
+                    }
+
+                    // check for slide with opposite finger
+                    if ((initialTouchYValues[t.fingerId] - t.position.y) >= screenSwipeHeight)
+                    {
+                        player.IsSliding = true;
+                        player.isAttacking = false;
+                        initialTouchYValues[t.fingerId] = t.position.y;
+                    }
+                    if ((initialTouchYValues[t.fingerId] - t.position.y) <= -screenSwipeHeight && player.IsSliding)
+                    {
+                        player.SlideAttack();
+                        initialTouchYValues[t.fingerId] = t.position.y;
+                    }
+
+                    // remove when finger lifted
+                    if (t.phase == TouchPhase.Ended || t.phase == TouchPhase.Canceled)
+                    {
+                        initialTouchYValues.Remove(t.fingerId);
+                    }
+
+                }
+            }
+            
         }
     }
 }
