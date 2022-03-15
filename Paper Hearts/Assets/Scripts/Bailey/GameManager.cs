@@ -87,6 +87,17 @@ public class GameManager : MonoBehaviour
         hasWon = true;
         // anything else here
     }
+    public static void toggleTime()
+    {
+        if(Time.timeScale == 1.0f)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
+    }
     private void KeyboardInput()
     {
 

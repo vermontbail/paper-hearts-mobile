@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI prompt;
     //Private vars
     private int countdownCounter = 0;
-    private float countdownTimeThird = .5f; //Make the time 1/3 of how long, in seconds, you want the player to wait before playing.
+    private float countdownTimeThird = 30f; //Make the time 1/3 of how long, in frames, you want the player to wait before playing.
     private float countdown = 0f;
 
     // Start is called before the first frame update
@@ -36,6 +36,7 @@ public class LevelManager : MonoBehaviour
     {
         if (GameManager.gameplayStarting)
         {
+            GameManager.toggleTime();
             GameManager.gameplayStarting = false;
             GameManager.runGame = false;
             prompt.text = "3";
@@ -44,7 +45,7 @@ public class LevelManager : MonoBehaviour
         }
         if (!GameManager.runGame || countdownCounter == 3)
         {
-            countdown -= Time.deltaTime;
+            countdown--;
         }
         if (countdownCounter < 4 && countdown <= 0f)
         {
@@ -58,6 +59,7 @@ public class LevelManager : MonoBehaviour
             {
                 GameManager.runGame = true;
                 prompt.text = "GO!";
+                GameManager.toggleTime();
             }
             else
             {
