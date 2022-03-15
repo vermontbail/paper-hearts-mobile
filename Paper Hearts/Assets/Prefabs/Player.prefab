@@ -214,6 +214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAttacking: 0
+  cardProjectile: {fileID: 4428428617646454575, guid: 709d18da1dd7057419cf90130fa661cc, type: 3}
+  explosionProjectile: {fileID: 5500236158121136410, guid: 80a80b2b9c57b754f872a279e61fbb4f, type: 3}
 --- !u!50 &4913148472351945182
 Rigidbody2D:
   serializedVersion: 4
