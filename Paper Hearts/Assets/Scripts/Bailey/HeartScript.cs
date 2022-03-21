@@ -178,5 +178,13 @@ public class HeartScript : MonoBehaviour
             // increment score
             FindObjectOfType<GameManager>().AddScore();
         }
+        if (col.transform.tag == "Player")
+        {
+            col.transform.GetComponent<PlayerController>().TakeDamage();
+        }
+        if (col.transform.tag == "Enemy")
+        {
+            col.transform.GetComponent<EnemyScript>().TakeDamage();
+        }
     }
 }
