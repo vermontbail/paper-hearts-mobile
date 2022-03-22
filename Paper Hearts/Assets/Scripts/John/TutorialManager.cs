@@ -80,7 +80,7 @@ public class TutorialManager : MonoBehaviour
     private static void ResetTimer(float readTime)
     {
         timerActive = true;
-        timer = readTime * 3; //Change back to 3 when done debugging.
+        timer = readTime * 0; //Change back to 3 when done debugging.
         GameManager.toggleTime();
     }
 
@@ -109,11 +109,11 @@ public class TutorialManager : MonoBehaviour
                 tutState = TutorialState.learnSwing;
                 break;
             case TutorialState.learnSwing:
-                prompt.text = "While moving, swipe down to slide.";
+                prompt.text = "While moving, swipe down with your free finger to slide.";
                 tutState = TutorialState.learnSlide;
                 break;
             case TutorialState.learnSlide:
-                prompt.text = "While sliding, swipe up to kick.";
+                prompt.text = "While sliding, swipe up with your free finger to kick.";
                 tutState = TutorialState.learnKick;
                 break;
             case TutorialState.learnKick:

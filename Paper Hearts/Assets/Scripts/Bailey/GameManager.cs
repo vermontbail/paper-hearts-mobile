@@ -45,7 +45,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
-
+        if(!GameObject.Find("TutorialManager"))
+        {
+            TutorialManager.tutState = TutorialManager.TutorialState.complete;
+        }
         // get number of score
         try
         {
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Scoreblocks not found. Using number of scoreblocks from tutorial...");
             totalScore = TutorialManager.blockParent.transform.childCount; //This error should only occur in the tutorial due to level creation order.
+            Debug.Log("totalScore: " + totalScore);
         }
 
 
@@ -87,7 +91,7 @@ public class GameManager : MonoBehaviour
         currentScore++;
         if (currentScore >= totalScore)
         {
-            if(TutorialManager.tutState == TutorialManager.TutorialState.heart2)
+            if(TutorialManager.tutState == TutorialManager.TutorialState.blocks)
             {
                 TutorialManager.AdvanceTutorial();
             }

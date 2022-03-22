@@ -1309,6 +1309,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4913148472351945153, guid: fa11d6289c58afd4b83d3618d60ee512, type: 3}
+      propertyPath: health
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913148472351945153, guid: fa11d6289c58afd4b83d3618d60ee512, type: 3}
       propertyPath: cardProjectile
       value: 
       objectReference: {fileID: 4428428617646454575, guid: 709d18da1dd7057419cf90130fa661cc, type: 3}
