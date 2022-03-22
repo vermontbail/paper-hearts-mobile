@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour
         get { return isSliding; }
         set
         {
-            if (slideCooldown <= 0f && !slideAttacking && value == true)
+            if (slideCooldown <= 0f && !slideAttacking && value == true && currentStun <= 0f)
             {
                 // enable sliding hitbox
                 slideHb.GetComponent<BoxCollider2D>().enabled = true;
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
                     slideHb.transform.localPosition = new Vector2(-slideHitboxDisplacement.x, slideHitboxDisplacement.y);
                 }
 
-                 isSliding = value;
+                isSliding = value;
             }
         }
     }
@@ -82,6 +83,14 @@ public class PlayerController : MonoBehaviour
     private const float cardDuration = 10f;
     private const float chargeDuration = 10f;
     private float powerUpTimer = 0f;
+
+    // damage
+    private float invulnerabilityTime = 1.5f;
+    private float damageStunTime = 1f;
+    private float currentStun = 0f;
+    private float currentInvuln = 0f;
+
+    public int health = 3;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -95,10 +104,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (currentStun > 0)
+        {
+            // cooldowns
+            DecrementCooldowns();
+
+            // debug colors
+            TestingColors();
+
+            // break out early
+            return;
+        }
         // attacking functionality, game manager handles "un-attacking"
         if (isAttacking)
         {
-            
+
             // check for first side
             if (!attackStarted)
             {
@@ -133,10 +153,10 @@ public class PlayerController : MonoBehaviour
                     attackSwingSpeed = baseAttackSwingSpeed;
                 }
                 else { attackSwingSpeed = baseAttackSwingSpeed * 1.5f; }
-             
+
                 switch (attackSwingingRight)
                 {
-                    
+
                     case true:
                         axis = new Vector3(0, 0, -1);
                         attackHb.RotateAround(point, axis, Time.deltaTime * attackSwingSpeed);
@@ -174,7 +194,7 @@ public class PlayerController : MonoBehaviour
         {
 
             // change slide attack transform
-            slideAttackHb.transform.localScale = new Vector2(slideTimer / -(2 * slideAttackDuration) + 1f, slideTimer/(2*slideAttackDuration) + 1f);
+            slideAttackHb.transform.localScale = new Vector2(slideTimer / -(2 * slideAttackDuration) + 1f, slideTimer / (2 * slideAttackDuration) + 1f);
 
             if (lastMovedRight)
             {
@@ -199,8 +219,8 @@ public class PlayerController : MonoBehaviour
                 case true:
                     if (!slideAttacking)
                     {
-                        rb.velocity = new Vector2((((-1.5f/slideDuration * slideTimer) + 1.5f) * slidingSpeed), 0.0f);
-                        
+                        rb.velocity = new Vector2((((-1.5f / slideDuration * slideTimer) + 1.5f) * slidingSpeed), 0.0f);
+
                     }
                     else { MoveRight(); }
                     break;
@@ -223,7 +243,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         else // reset
-        { 
+        {
             isSliding = false;
             slideAttacking = false;
             slideTimer = 0f;
@@ -245,18 +265,24 @@ public class PlayerController : MonoBehaviour
     // Movement
     public void MoveRight()
     {
-        rb.velocity = new Vector2(movingSpeed, 0.0f);
-        lastMovedRight = true;
+        if (currentStun <= 0)
+        {
+            rb.velocity = new Vector2(movingSpeed, 0.0f);
+            lastMovedRight = true;
+        }
     }
     public void MoveLeft()
     {
-        rb.velocity = new Vector2(-movingSpeed, 0.0f);
-        lastMovedRight = false;
+        if (currentStun <= 0)
+        {
+            rb.velocity = new Vector2(-movingSpeed, 0.0f);
+            lastMovedRight = false;
+        }
     }
 
     public void SlideAttack()
     {
-        if (isSliding && !slideAttacking)
+        if (isSliding && !slideAttacking && currentStun <= 0)
         {
             // change time remaining on slide directly
             slideTimer = 0f;
@@ -290,6 +316,10 @@ public class PlayerController : MonoBehaviour
         if (slideAttacking)
         {
             GetComponent<SpriteRenderer>().color = Color.blue;
+        }
+        else if (currentStun > 0f)
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
         }
         else if (isSliding)
         {
@@ -356,6 +386,41 @@ public class PlayerController : MonoBehaviour
             instance.transform.position = new Vector2(this.transform.position.x, this.transform.position.y);
         }
     }
+    public void TakeDamage()
+    {
+        if (currentInvuln <= 0)
+        {
+            health--;
+            if (health <= 0)
+            {
+                // get reference to game manager to help end game
+                // placeholder reset
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            else
+            {
+                currentStun = damageStunTime;
+                currentInvuln = invulnerabilityTime;
+
+                // reset attacking properties
+                isSliding = false;
+                slideAttacking = false;
+                slideTimer = 0f;
+
+                slideHb.GetComponent<BoxCollider2D>().enabled = false;
+                slideHb.GetComponent<SpriteRenderer>().enabled = false;
+
+                slideAttackHb.GetComponent<SpriteRenderer>().enabled = false;
+                slideAttackHb.GetComponent<BoxCollider2D>().enabled = false;
+
+                isAttacking = false;
+                attackHb.GetComponent<SpriteRenderer>().enabled = false;
+                attackHb.GetComponent<CapsuleCollider2D>().enabled = false;
+                attackStarted = false;
+                attackSwingingRight = false;
+            }
+        }
+    }
     private void DecrementCooldowns()
     {
         // decrement player cooldowns
@@ -367,6 +432,14 @@ public class PlayerController : MonoBehaviour
         if (cardAttackTimer > 0)
         {
             cardAttackTimer -= Time.deltaTime;
+        }
+        if (currentInvuln > 0)
+        {
+            currentInvuln -= Time.deltaTime;
+        }
+        if (currentStun > 0)
+        {
+            currentStun -= Time.deltaTime;
         }
 
         // increase time spent in the powerup state

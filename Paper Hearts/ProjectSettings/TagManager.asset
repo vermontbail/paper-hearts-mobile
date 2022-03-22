@@ -12,6 +12,8 @@ TagManager:
   - PowerUp Block
   - Heart
   - Explosion
+  - Patrol
+  - Enemy
   layers:
   - Default
   - TransparentFX
