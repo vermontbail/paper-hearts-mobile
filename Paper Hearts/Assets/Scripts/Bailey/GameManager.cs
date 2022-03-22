@@ -47,7 +47,15 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
 
         // get number of score
-        totalScore = GameObject.Find("Scoreblocks").transform.childCount;
+        try
+        {
+            totalScore = GameObject.Find("Scoreblocks").transform.childCount;
+        }
+        catch (NullReferenceException)
+        {
+            Debug.Log("Scoreblocks not found. Using number of scoreblocks from tutorial...");
+            totalScore = TutorialManager.blockParent.transform.childCount; //This error should only occur in the tutorial due to level creation order.
+        }
 
 
         screenMidWidth = (float)Screen.width / 2.0f;
@@ -79,6 +87,10 @@ public class GameManager : MonoBehaviour
         currentScore++;
         if (currentScore >= totalScore)
         {
+            if(TutorialManager.tutState == TutorialManager.TutorialState.heart2)
+            {
+                TutorialManager.AdvanceTutorial();
+            }
             LevelComplete();
         }
     }
@@ -104,6 +116,10 @@ public class GameManager : MonoBehaviour
         // check for attack, set to false if isnt
         if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow) && !player.IsSliding)
         {
+            if (TutorialManager.tutState == TutorialManager.TutorialState.learnSwing)
+            {
+                TutorialManager.AdvanceTutorial();
+            }
             player.isAttacking = true;
         }
         else player.isAttacking = false;
@@ -111,13 +127,27 @@ public class GameManager : MonoBehaviour
         // check for slide
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            player.IsSliding = true;
-            player.isAttacking = false;
+            if (TutorialManager.tutState > TutorialManager.TutorialState.learnSwing)
+            {
+                if (TutorialManager.tutState == TutorialManager.TutorialState.learnSlide)
+                {
+                    TutorialManager.AdvanceTutorial();
+                }
+                player.IsSliding = true;
+                player.isAttacking = false;
+            }
         }
         // check for slide attack
         if (Input.GetKeyDown(KeyCode.UpArrow) && player.IsSliding)
         {
-            player.SlideAttack();
+            if (TutorialManager.tutState > TutorialManager.TutorialState.learnSlide)
+            {
+                player.SlideAttack();
+                if (TutorialManager.tutState == TutorialManager.TutorialState.learnKick)
+                {
+                    TutorialManager.AdvanceTutorial();
+                }
+            }
         }
 
         // check for normal movement
@@ -125,11 +155,25 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                player.MoveRight();
+                if (TutorialManager.tutState > TutorialManager.TutorialState.moveLeft)
+                {
+                    if (TutorialManager.tutState == TutorialManager.TutorialState.moveRight)
+                    {
+                        TutorialManager.AdvanceTutorial();
+                    }
+                    player.MoveRight();
+                }
             }
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                player.MoveLeft();
+                if (TutorialManager.tutState > 0)
+                {
+                    if (TutorialManager.tutState == TutorialManager.TutorialState.moveLeft)
+                    {
+                        TutorialManager.AdvanceTutorial();
+                    }
+                    player.MoveLeft();
+                }
             }
         }
     }
@@ -140,13 +184,30 @@ public class GameManager : MonoBehaviour
         
         if (touchArray.Length == 1 && !player.IsSliding) // one finger
         {
+            
             if (touchArray[0].position.x >= screenMidWidth)
             {
-                player.MoveRight();
+                if(TutorialManager.tutState > TutorialManager.TutorialState.moveLeft)
+                {
+                    if(TutorialManager.tutState == TutorialManager.TutorialState.moveRight)
+                    {
+                        TutorialManager.AdvanceTutorial();
+                    }
+                    player.MoveRight();
+                }
+                
             }
             else
             {
-                player.MoveLeft();
+                if(TutorialManager.tutState > 0)
+                {
+                    if(TutorialManager.tutState == TutorialManager.TutorialState.moveLeft)
+                    {
+                        TutorialManager.AdvanceTutorial();
+                    }
+                    player.MoveLeft();
+                }
+                
             }
             firstTouch = touchArray[0];
         }
@@ -154,7 +215,15 @@ public class GameManager : MonoBehaviour
         {
             if (!player.IsSliding)
             {
-                player.isAttacking = true;
+                if(TutorialManager.tutState > TutorialManager.TutorialState.moveRight)
+                {
+                    if (TutorialManager.tutState == TutorialManager.TutorialState.learnSwing)
+                    {
+                        TutorialManager.AdvanceTutorial();
+                    }
+                    player.isAttacking = true;
+                }
+                
             }
 
             foreach (Touch t in touchArray)
@@ -178,14 +247,28 @@ public class GameManager : MonoBehaviour
                     // check for slide with opposite finger
                     if ((initialTouchYValues[t.fingerId] - t.position.y) >= screenSwipeHeight)
                     {
-                        player.IsSliding = true;
-                        player.isAttacking = false;
-                        initialTouchYValues[t.fingerId] = t.position.y;
+                        if(TutorialManager.tutState > TutorialManager.TutorialState.learnSwing)
+                        {
+                            if(TutorialManager.tutState == TutorialManager.TutorialState.learnSlide)
+                            {
+                                TutorialManager.AdvanceTutorial();
+                            }
+                            player.IsSliding = true;
+                            player.isAttacking = false;
+                            initialTouchYValues[t.fingerId] = t.position.y;
+                        }
                     }
                     if ((initialTouchYValues[t.fingerId] - t.position.y) <= -screenSwipeHeight && player.IsSliding)
                     {
-                        player.SlideAttack();
-                        initialTouchYValues[t.fingerId] = t.position.y;
+                        if(TutorialManager.tutState > TutorialManager.TutorialState.learnSlide)
+                        {
+                            player.SlideAttack();
+                            initialTouchYValues[t.fingerId] = t.position.y;
+                            if(TutorialManager.tutState == TutorialManager.TutorialState.learnKick)
+                            {
+                                TutorialManager.AdvanceTutorial();
+                            }
+                        } 
                     }
 
                     // remove when finger lifted

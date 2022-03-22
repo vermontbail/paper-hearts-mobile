@@ -36,7 +36,11 @@ public class LevelManager : MonoBehaviour
     {
         if (GameManager.gameplayStarting)
         {
-            GameManager.toggleTime();
+            Debug.Log(PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL));
+            if(PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) > 0)
+            {
+                GameManager.toggleTime();
+            }
             GameManager.gameplayStarting = false;
             GameManager.runGame = false;
             prompt.text = "3";
