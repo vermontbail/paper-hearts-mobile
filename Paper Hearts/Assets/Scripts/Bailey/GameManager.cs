@@ -120,11 +120,14 @@ public class GameManager : MonoBehaviour
         // check for attack, set to false if isnt
         if (Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow) && !player.IsSliding)
         {
-            if (TutorialManager.tutState == TutorialManager.TutorialState.learnSwing)
+            if (TutorialManager.tutState > TutorialManager.TutorialState.moveRight)
             {
-                TutorialManager.AdvanceTutorial();
+                if (TutorialManager.tutState == TutorialManager.TutorialState.learnSwing)
+                {
+                    TutorialManager.AdvanceTutorial();
+                }
+                player.isAttacking = true;
             }
-            player.isAttacking = true;
         }
         else player.isAttacking = false;
 

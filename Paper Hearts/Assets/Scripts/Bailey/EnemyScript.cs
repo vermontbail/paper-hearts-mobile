@@ -126,6 +126,10 @@ public class EnemyScript : MonoBehaviour
         health--;
         if (health <= 0) // remove from game
         {
+            if(TutorialManager.tutState == TutorialManager.TutorialState.enemy)
+            {
+                TutorialManager.AdvanceTutorial();
+            }
             this.transform.parent.gameObject.SetActive(false);
         }
         else
