@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heldPowerUp: 1
-  createdPowerup: {fileID: 2659102738820297275, guid: 82e1a9966d3013549bde92dc2de0fe8b, type: 3}
+  createdPowerup: {fileID: 2659102738820297275, guid: 685099b12781a784e9eb1d5981d73232, type: 3}
 --- !u!212 &6148858652997871682
 SpriteRenderer:
   m_ObjectHideFlags: 0
