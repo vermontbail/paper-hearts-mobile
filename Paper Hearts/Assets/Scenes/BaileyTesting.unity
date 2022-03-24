@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 141231836}
   - component: {fileID: 141231835}
   - component: {fileID: 141231837}
+  - component: {fileID: 141231838}
   m_Layer: 0
   m_Name: Panel (2)
   m_TagString: Panel
@@ -247,6 +248,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 170ac40437facbb409e9b649a50ee2ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &141231838
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141231833}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e49d85cc1f718cc4ab7b6524358a8d19, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &175655813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,6 +2210,7 @@ GameObject:
   - component: {fileID: 1549729960}
   - component: {fileID: 1549729959}
   - component: {fileID: 1549729961}
+  - component: {fileID: 1549729962}
   m_Layer: 0
   m_Name: Panel (1)
   m_TagString: Panel
@@ -2301,6 +2323,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 170ac40437facbb409e9b649a50ee2ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1549729962
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549729957}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e49d85cc1f718cc4ab7b6524358a8d19, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1578247104
 GameObject:
   m_ObjectHideFlags: 0
@@ -3281,6 +3323,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2108990854}
     m_Modifications:
+    - target: {fileID: -8499931083278021172, guid: 8c93a7632380a9e489a4092c6791225d, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 06cab36f0bb298b42a32461853ffcf16, type: 2}
     - target: {fileID: 5166809711133248105, guid: 8c93a7632380a9e489a4092c6791225d, type: 3}
       propertyPath: m_RootOrder
       value: 9

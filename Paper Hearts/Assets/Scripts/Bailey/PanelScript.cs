@@ -6,6 +6,7 @@ public class PanelScript : MonoBehaviour
 {
     // Start is called before the first frame update
     private bool flipped = false;
+    private Animator myAnimator;
 
     public bool Flipped
     {
@@ -13,7 +14,7 @@ public class PanelScript : MonoBehaviour
     }
     void Start()
     {
-        
+        myAnimator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class PanelScript : MonoBehaviour
         {
             flipped = true;
             // play animation
+            myAnimator.Play("FlipAnimation",0,0.0f);
             // placeholder color switch for now
             GetComponent<SpriteRenderer>().color = new Color(207f, 79f, 77f);
         }
