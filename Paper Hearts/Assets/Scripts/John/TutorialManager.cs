@@ -18,6 +18,7 @@ public class TutorialManager : MonoBehaviour
     static bool timerActive = false;
     static GameObject heart;
     static GameObject tutCircle;
+    static ToNewScene sceneManager;
     public enum TutorialState
     {
         welcome,
@@ -39,6 +40,7 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sceneManager = GameObject.Find("SceneManager").GetComponent<ToNewScene>();
         prompt = GameObject.Find("PromptMiddle").GetComponent<TextMeshProUGUI>();
         leftPrompt = GameObject.Find("PromptLeft").GetComponent<TextMeshProUGUI>();
         rightPrompt = GameObject.Find("PromptRight").GetComponent<TextMeshProUGUI>();
@@ -79,7 +81,7 @@ public class TutorialManager : MonoBehaviour
     private static void ResetTimer(float readTime)
     {
         timerActive = true;
-        timer = readTime * 2; //Change back to 3 when done debugging.
+        timer = readTime * 10f; //Change back to 3 when done debugging.
         GameManager.toggleTime();
     }
 
@@ -177,6 +179,7 @@ public class TutorialManager : MonoBehaviour
                 tutState = TutorialState.complete;
                 break;
             case TutorialState.complete:
+                sceneManager.LoadScene("BaileyTesting 1");
                 break;
             default:
                 Debug.Log("Tutorial advanced without advance case. Enum: " + tutState);
