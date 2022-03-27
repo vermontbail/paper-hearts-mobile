@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 26
+  controlID: 102
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,15 +68,15 @@ MonoBehaviour:
     y: 0
     width: 642
     height: 939
-  m_MinSize: {x: 275, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 12}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
   - {fileID: 15}
   - {fileID: 12}
-  m_Selected: 2
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -96,8 +96,8 @@ MonoBehaviour:
     y: 0
     width: 299
     height: 629
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 27
+  controlID: 103
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 28
+  controlID: 104
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -315,7 +315,7 @@ MonoBehaviour:
     m_CachedPref: 151
     m_ControlHash: 1412526313
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: -9990
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -8244
+  m_LastSelectedObjectID: -9986
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -385,6 +385,8 @@ MonoBehaviour:
     m_KeySerializationHelper:
     - {fileID: 4541684792411727467, guid: e49d85cc1f718cc4ab7b6524358a8d19, type: 2}
     - {fileID: 4161110326683086166, guid: e6e9a73616699e147b0361d63be7ee19, type: 2}
+    - {fileID: 121861506127654378, guid: 936c3d2aa1a95bd4796812ac11f6d5c8, type: 2}
+    - {fileID: -2683257955741244944, guid: 5b18acd9d3033ec459e02b0887c36526, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.62
       e01: 0
@@ -418,10 +420,42 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 0.804086
+      e01: 0
+      e02: 0
+      e03: -118.023026
+      e10: 0
+      e11: 0.804086
+      e12: 0
+      e13: 246.16333
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 0.64835167
+      e01: 0
+      e02: 0
+      e03: -17.417603
+      e10: 0
+      e11: 0.64835167
+      e12: 0
+      e13: 229.71428
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: e6e9a73616699e147b0361d63be7ee19, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 5b18acd9d3033ec459e02b0887c36526, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 4161110326683086166, guid: e6e9a73616699e147b0361d63be7ee19, type: 2}
+  - m_Target: {fileID: -2683257955741244944, guid: 5b18acd9d3033ec459e02b0887c36526, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -506,7 +540,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 299
     y: 73
-    width: 976
+    width: 977
     height: 608
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -553,23 +587,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Media/Images/Animations
+    - Assets/Scripts/Noah
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Media/Images/Animations
+  - Assets/Scripts/Noah
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\nhuli\Desktop\Paper Hearts Mobile\paper-hearts-mobile\Paper
     Hearts
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: d8670000
-    m_LastClickedID: 26584
-    m_ExpandedIDs: 000000006e63000070630000726300007463000076630000786300007a630000fc63000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 191}
+    m_SelectedIDs: be640000
+    m_LastClickedID: 25790
+    m_ExpandedIDs: 00000000fa630000fc630000fe63000000640000026400000464000006640000086400000a6400000c6400000e64000010640000126400001464000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -597,7 +631,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006e63000070630000726300007463000076630000786300007a630000
+    m_ExpandedIDs: 00000000fa630000fc630000fe63000000640000026400000464000006640000086400000a6400000c6400000e640000106400001264000014640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -625,7 +659,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300002a61000094650000d48e0000fe6500005c6400000c660000fc65000046bc0000
+    m_ExpandedInstanceIDs: c62300002a61000094650000d48e0000fe6500005c6400000c660000fc65000046bc0000e66300004c2700001e640000346c00006a620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -687,7 +721,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -65458
+  m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 1
@@ -725,9 +759,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 4e00ffff
+      m_SelectedIDs: 82210000
       m_LastClickedID: 0
-      m_ExpandedIDs: aad5fffff4ddfffffaf0ffff66f1ffff20fbffff12620000
+      m_ExpandedIDs: 18fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -850,7 +884,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 24.8}
+      snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -1192,7 +1226,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 702
-    width: 1276
+    width: 1277
     height: 289
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
