@@ -91,6 +91,9 @@ public class PlayerController : MonoBehaviour
     private float currentInvuln = 0f;
 
     public int health = 3;
+
+    //Animator/SpriteRenderer
+    private Animator myAnimator;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -99,6 +102,7 @@ public class PlayerController : MonoBehaviour
         slideHb = this.transform.Find("Slide");
         slideAttackHb = this.transform.Find("SlideAttack");
         heart = FindObjectOfType<HeartScript>(); // the first heart
+        myAnimator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -125,7 +129,7 @@ public class PlayerController : MonoBehaviour
                 // start the cycle, first move the hitbox to position
                 attackHb.GetComponent<SpriteRenderer>().enabled = true;
                 attackHb.GetComponent<CapsuleCollider2D>().enabled = true;
-
+                myAnimator.SetBool("isAttacking", true);
                 switch (lastMovedRight)
                 {
                     case true:
@@ -182,6 +186,7 @@ public class PlayerController : MonoBehaviour
         }
         else // clean up attacking
         {
+            myAnimator.SetBool("isAttacking", false);
             attackHb.GetComponent<SpriteRenderer>().enabled = false;
             attackHb.GetComponent<CapsuleCollider2D>().enabled = false;
             attackStarted = false;
@@ -194,7 +199,9 @@ public class PlayerController : MonoBehaviour
         {
 
             // change slide attack transform
+            myAnimator.SetBool("isSliding", true);
             slideAttackHb.transform.localScale = new Vector2(slideTimer / -(2 * slideAttackDuration) + 1f, slideTimer / (2 * slideAttackDuration) + 1f);
+
 
             if (lastMovedRight)
             {
@@ -214,6 +221,7 @@ public class PlayerController : MonoBehaviour
         {
 
             // movement
+            myAnimator.SetBool("isSliding", true);
             switch (lastMovedRight)
             {
                 case true:
@@ -222,7 +230,9 @@ public class PlayerController : MonoBehaviour
                         rb.velocity = new Vector2((((-1.5f / slideDuration * slideTimer) + 1.5f) * slidingSpeed), 0.0f);
 
                     }
-                    else { MoveRight(); }
+                    else {
+                        MoveRight();
+                    }
                     break;
 
                 case false:
@@ -230,7 +240,9 @@ public class PlayerController : MonoBehaviour
                     {
                         rb.velocity = new Vector2((((-1.5f / slideDuration * slideTimer) + 1.5f) * -slidingSpeed), 0.0f);
                     }
-                    else { MoveLeft(); }
+                    else {
+                        MoveLeft();
+                    }
                     break;
             }
 
@@ -244,6 +256,7 @@ public class PlayerController : MonoBehaviour
         }
         else // reset
         {
+            myAnimator.SetBool("isSliding", false);
             isSliding = false;
             slideAttacking = false;
             slideTimer = 0f;
@@ -254,6 +267,17 @@ public class PlayerController : MonoBehaviour
 
             slideAttackHb.GetComponent<SpriteRenderer>().enabled = false;
             slideAttackHb.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        if (!isSliding & !isAttacking)
+        {
+            if (Mathf.Abs(rb.velocity.x) > 3.0f)
+            {
+                myAnimator.SetBool("isWalking", true);
+            }
+            else
+            {
+                myAnimator.SetBool("isWalking", false);
+            }
         }
 
         // cooldowns
@@ -267,6 +291,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentStun <= 0)
         {
+            GetComponent<SpriteRenderer>().flipX = false;
             rb.velocity = new Vector2(movingSpeed, 0.0f);
             lastMovedRight = true;
         }
@@ -275,11 +300,11 @@ public class PlayerController : MonoBehaviour
     {
         if (currentStun <= 0)
         {
+            GetComponent<SpriteRenderer>().flipX = true;
             rb.velocity = new Vector2(-movingSpeed, 0.0f);
             lastMovedRight = false;
         }
     }
-
     public void SlideAttack()
     {
         if (isSliding && !slideAttacking && currentStun <= 0)
@@ -401,6 +426,7 @@ public class PlayerController : MonoBehaviour
             {
                 currentStun = damageStunTime;
                 currentInvuln = invulnerabilityTime;
+                myAnimator.Play("IdleAnimation", 0, 0.0f);
 
                 // reset attacking properties
                 isSliding = false;

@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -33,27 +33,27 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -69,6 +69,54 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -78,18 +126,1536 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 159
+        width: 82
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b0f6cdc5479db3438ad80318b41640b
+      internalID: -728742350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 149
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84688c5ce46bc6b4997060b84e86af2e
+      internalID: 284610991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 159
+        width: 82
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc84893e1ee513746abfbe1e286cff93
+      internalID: -1892785487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 159
+        width: 82
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41185e5ebb3294a439d0eb46571b9131
+      internalID: 1098159957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 149
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ada0d0730855664b942df8ac61da865
+      internalID: -824436772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 159
+        width: 82
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38acf2b3fad3a5447af4f3fc2403298c
+      internalID: 1250661313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 159
+        width: 82
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb7a7bde327f5d428e2ece7a3fe2171
+      internalID: -656340029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 2039
+        y: 149
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88219df9faad4d84a8bbe0ac28ee4a8d
+      internalID: 1013888351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2359
+        y: 159
+        width: 82
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e393c6399e62aa42933ab2576c834e5
+      internalID: 847744482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 139
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3fbdd4c976e7d42baf0b3ea946f54b
+      internalID: 701015041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 129
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a067e83399a84847af6cfe6498e5d04
+      internalID: -1218581193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 139
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a3ada103e51aa4a8a8f2a04eb18d7d
+      internalID: -467301821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 129
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0620e54643be56947aa7171abe1ac05c
+      internalID: 1029181804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 139
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0e998698a78f3b4086769788c702225
+      internalID: -1986947721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2049
+        y: 139
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6769196ef2c9bcf46aa4d9e464cdd915
+      internalID: -1240935495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 2389
+        y: 139
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca2b05665cbaf154fa7e28ea784e21ae
+      internalID: 1423237125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 2409
+        y: 129
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63bdf87a1a92c7841af1a91fe55e0891
+      internalID: 698761556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 119
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43aebea525ccc27438efddf0429bb218
+      internalID: -1064126339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 119
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80342e3055c4a354790b9bfec9ca8288
+      internalID: 179433002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 109
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a46ce56af737c44292e39b44ad52f13
+      internalID: 1899351467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 119
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0942b935cc9d3b640ac9e13c4eb7cb50
+      internalID: 1262486328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 1739
+        y: 109
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aec8cbdd7a584448a0b3cc7cfc3e1c7
+      internalID: 252937061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 119
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e762e46891f8cd4daa77b0bf03d1a26
+      internalID: 86853929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 2369
+        y: 119
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aef8b507734e664bbca6b1e6bdf8fdb
+      internalID: 1374885591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 99
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 750d12b7fbb7a7446a835b1389967c8f
+      internalID: 551263458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 99
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be4eab6508e82f04c97965436506005e
+      internalID: -283609883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 99
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2507fe59fd1162247bbb992e313f1749
+      internalID: 501763485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 89
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262881fa771f0f04a9bef23bbecb3c66
+      internalID: -183684868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 99
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293f70b1ebaa01047bf35bf6ef6736db
+      internalID: -182369111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 2059
+        y: 89
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e4f2469c67d3eb45bac9f6fd79b864e
+      internalID: 1780823784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 99
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45f8e59518a1d74fa19b9dcbf6ddcaa
+      internalID: -2106323441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 79
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530415f2759b7934d8dd6665ae8884a9
+      internalID: -855587795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 79
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7ddff5058f4694a91270a7fc24277f
+      internalID: 238606014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 79
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d200c2a6aa92d4f8283d133ba9c617
+      internalID: 444751240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 79
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a779bd7180e843845b571caf45a5dcba
+      internalID: -1850154417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 69
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe86f202222c4f4ab0a107f4ac45915
+      internalID: -51711229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 1759
+        y: 79
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a102224ef9d72408e75a53645422b9
+      internalID: -632009748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 2379
+        y: 69
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c3a4d998673474eabc8f98bcf95612
+      internalID: -232864924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 79
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ac2b154a9e017046abb5485df014110
+      internalID: -966850783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 59
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234389781c8e3f74f8cc82dcfe6d6f0a
+      internalID: -2105160657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 59
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b81d5741fbbea438f41fcb36868a60
+      internalID: -1641547684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 59
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ba8feda2c290f1469d853f21842ca58
+      internalID: -567741748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 59
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba88dda49825e36409c093a30ec77efe
+      internalID: 1689256198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 59
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78d683b86a9ef2647838d4a6bbe18791
+      internalID: 56875773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 1729
+        y: 49
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c65bd030e7b9f46acb012cd519f8d8
+      internalID: 1830114705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 59
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f5bca86e335f9438fc28b2fb96afca
+      internalID: 1880843213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 39
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c72172f3c3140e546a7daedea22433fc
+      internalID: -1810386124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 39
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70aa80f143d8b954994e2e30e7263e24
+      internalID: -1223525748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 39
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2adab38deb69ac24da7dc1cd46dd072c
+      internalID: -531558751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 39
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db294c7be08a05f4ebdcdf69fbb4e2ef
+      internalID: -708010962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 1429
+        y: 39
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 786e1dd58f2cede419e5330c7731f1cf
+      internalID: -327235799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 1769
+        y: 39
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751c65c655ff1ce4e80de1bc51b0b905
+      internalID: -1452260579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 2049
+        y: 29
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3590cf820bc64e4b9ff33833e3caace
+      internalID: -1258218656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 39
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06044e912bc837245890c6ba62f180cc
+      internalID: -208475579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 19
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e27b419dc9c66c44d8a61221e2cc4980
+      internalID: -895418835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 19
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9646e0c268f35a840a496158f819875b
+      internalID: 1519649060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 19
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60f755a452d21934d91fb87965826798
+      internalID: 1162932124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 19
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 245b67bb69106bc4b966db1672220b86
+      internalID: -958963012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 19
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bfce3222e090df4a9423c5b07460da4
+      internalID: 952258493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 1749
+        y: 19
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d285e4cc0b5e6642a57074e32985258
+      internalID: -966908006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 19
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88a25ed15dbbd0c40b27e49989bac31b
+      internalID: -668492531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 2369
+        y: 9
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c517743c3c6e0fb47aa3cf9594f0829a
+      internalID: 1011302653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee3d5a32b548d6e42a8312da0f8e4ab0
+      internalID: 1270423871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 329352d51a9f92c4abf3b02a304f08a7
+      internalID: 546338823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b9279f178745246aec7fa95568ca89
+      internalID: -959327689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1caed86bbc0d90d4b839ad661e331c3a
+      internalID: -1070695968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 1769
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5760c5a182e192e42bfccf09d57bac34
+      internalID: 1246249110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 2069
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6245e0bbaabfa9f4ba2ad68b6aa200f9
+      internalID: -978392203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProjectileAnimation-Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 2409
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e418fbc3e4c026f43aba89715cba15b9
+      internalID: -1599979014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 396a3e182e402a34e8fde76475a2aeaf
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ProjectileAnimation-Sheet_3: 1098159957
+      ProjectileAnimation-Sheet_18: 179433002
+      ProjectileAnimation-Sheet_33: 444751240
+      ProjectileAnimation-Sheet_41: -567741748
+      ProjectileAnimation-Sheet_11: -467301821
+      ProjectileAnimation-Sheet_66: 1246249110
+      ProjectileAnimation-Sheet_7: 1013888351
+      ProjectileAnimation-Sheet_17: -1064126339
+      ProjectileAnimation-Sheet_51: -1452260579
+      ProjectileAnimation-Sheet_45: 1880843213
+      ProjectileAnimation-Sheet_40: -1641547684
+      ProjectileAnimation-Sheet_56: 1162932124
+      ProjectileAnimation-Sheet_5: 1250661313
+      ProjectileAnimation-Sheet_13: -1986947721
+      ProjectileAnimation-Sheet_42: 1689256198
+      ProjectileAnimation-Sheet_48: -531558751
+      ProjectileAnimation-Sheet_64: -959327689
+      ProjectileAnimation-Sheet_44: 1830114705
+      ProjectileAnimation-Sheet_63: 546338823
+      ProjectileAnimation-Sheet_58: 952258493
+      ProjectileAnimation-Sheet_19: 1899351467
+      ProjectileAnimation-Sheet_1: 284610991
+      ProjectileAnimation-Sheet_60: -668492531
+      ProjectileAnimation-Sheet_67: -978392203
+      ProjectileAnimation-Sheet_10: -1218581193
+      ProjectileAnimation-Sheet_20: 1262486328
+      ProjectileAnimation-Sheet_54: -895418835
+      ProjectileAnimation-Sheet_31: -855587795
+      ProjectileAnimation-Sheet_25: -283609883
+      ProjectileAnimation-Sheet_39: -2105160657
+      ProjectileAnimation-Sheet_43: 56875773
+      ProjectileAnimation-Sheet_15: 1423237125
+      ProjectileAnimation-Sheet_65: -1070695968
+      ProjectileAnimation-Sheet_52: -1258218656
+      ProjectileAnimation-Sheet_59: -966908006
+      ProjectileAnimation-Sheet_49: -708010962
+      ProjectileAnimation-Sheet_46: -1810386124
+      ProjectileAnimation-Sheet_21: 252937061
+      ProjectileAnimation-Sheet_35: -51711229
+      ProjectileAnimation-Sheet_28: -182369111
+      ProjectileAnimation-Sheet_24: 551263458
+      ProjectileAnimation-Sheet_34: -1850154417
+      ProjectileAnimation-Sheet_47: -1223525748
+      ProjectileAnimation-Sheet_32: 238606014
+      ProjectileAnimation-Sheet_14: -1240935495
+      ProjectileAnimation-Sheet_50: -327235799
+      ProjectileAnimation-Sheet_8: 847744482
+      ProjectileAnimation-Sheet_0: -728742350
+      ProjectileAnimation-Sheet_23: 1374885591
+      ProjectileAnimation-Sheet_53: -208475579
+      ProjectileAnimation-Sheet_9: 701015041
+      ProjectileAnimation-Sheet_2: -1892785487
+      ProjectileAnimation-Sheet_55: 1519649060
+      ProjectileAnimation-Sheet_38: -966850783
+      ProjectileAnimation-Sheet_68: -1599979014
+      ProjectileAnimation-Sheet_37: -232864924
+      ProjectileAnimation-Sheet_61: 1011302653
+      ProjectileAnimation-Sheet_62: 1270423871
+      ProjectileAnimation-Sheet_57: -958963012
+      ProjectileAnimation-Sheet_4: -824436772
+      ProjectileAnimation-Sheet_36: -632009748
+      ProjectileAnimation-Sheet_26: 501763485
+      ProjectileAnimation-Sheet_6: -656340029
+      ProjectileAnimation-Sheet_12: 1029181804
+      ProjectileAnimation-Sheet_22: 86853929
+      ProjectileAnimation-Sheet_27: -183684868
+      ProjectileAnimation-Sheet_16: 698761556
+      ProjectileAnimation-Sheet_29: 1780823784
+      ProjectileAnimation-Sheet_30: -2106323441
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
