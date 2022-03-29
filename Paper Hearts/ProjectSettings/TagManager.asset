@@ -14,6 +14,8 @@ TagManager:
   - Explosion
   - Patrol
   - Enemy
+  - BossHead
+  - BossPart
   layers:
   - Default
   - TransparentFX
