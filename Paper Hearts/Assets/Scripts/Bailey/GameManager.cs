@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     PlayerController player;
-    private int totalScore = 0;
+    public int totalScore = 0;
     private int currentScore = 0;
     private bool hasWon = false;
     private TextMeshProUGUI promptText;
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
             {
                 TutorialManager.AdvanceTutorial();
             }
-            LevelComplete();
+            else LevelComplete();
         }
     }
     public void LevelComplete()

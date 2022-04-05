@@ -143,6 +143,8 @@ public class TutorialManager : MonoBehaviour
                 {
                     blockParent.transform.GetChild(a).gameObject.SetActive(true);
                 }
+                // fix 
+                GameObject.FindObjectOfType<GameManager>().totalScore = 3;
                 tutState = TutorialState.blocks;
                 break;
             case TutorialState.blocks:
