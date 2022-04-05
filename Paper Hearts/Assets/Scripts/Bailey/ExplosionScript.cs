@@ -34,7 +34,7 @@ public class ExplosionScript : MonoBehaviour
     }
 
     // explosion breaks blocks and flips panels
-    private void OnTriggerStay2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.transform.tag == "Block")
         {

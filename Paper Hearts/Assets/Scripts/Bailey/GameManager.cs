@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     private float screenSwipeHeight;
     private Touch firstTouch;
     private Dictionary<int, float> initialTouchYValues;
+    [SerializeField]
+    public List<GameObject> levelPrefabs;
     //Consts
     public enum levels
     {
@@ -44,7 +46,9 @@ public class GameManager : MonoBehaviour
     public static int highestLevel = 12; //Somewhat a magic number, change this if level numbers change.
     void Start()
     {
+
         player = FindObjectOfType<PlayerController>();
+
         if(!GameObject.Find("TutorialManager"))
         {
             TutorialManager.tutState = TutorialManager.TutorialState.complete;
@@ -52,14 +56,35 @@ public class GameManager : MonoBehaviour
         // get number of score
         try
         {
-            totalScore = GameObject.Find("Scoreblocks").transform.childCount;
+            // instantiate current level prefab
+            if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) >= 1)
+            {
+                GameObject layout = Instantiate(levelPrefabs[PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) - 1]);
+                layout.transform.position = new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0);
+                foreach (Transform child in transform)
+                {
+                    if (child.tag != "Unbreakable")
+                    {
+                        totalScore++;
+                    }
+                }
+            }
         }
         catch (NullReferenceException)
         {
             Debug.Log("Scoreblocks not found. Using number of scoreblocks from tutorial...");
-            totalScore = TutorialManager.blockParent.transform.childCount; //This error should only occur in the tutorial due to level creation order.
+            try
+            {
+                totalScore = TutorialManager.blockParent.transform.childCount; //This error should only occur in the tutorial due to level creation order.
+            }
+            catch
+            {
+                Debug.Log("No Tutorial Found");
+                totalScore = 1337;
+            }
             Debug.Log("totalScore: " + totalScore);
         }
+
 
 
         screenMidWidth = (float)Screen.width / 2.0f;
@@ -71,18 +96,21 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (runGame)
+        if (player != null)
         {
-            // check keyboard input
-            KeyboardInput();
-            // check mobile input
-            MobileInput();
 
-            // placeholder text
-            if (hasWon)
+            if (runGame)
             {
-                GameObject.Find("Placeholder Next").transform.position = new Vector2(0f, 0f);
+                // check keyboard input
+                KeyboardInput();
+                // check mobile input
+                MobileInput();
+
+                // placeholder text
+                if (hasWon)
+                {
+                    GameObject.Find("Placeholder Next").transform.position = new Vector2(0f, 0f);
+                }
             }
         }
     }
@@ -102,6 +130,8 @@ public class GameManager : MonoBehaviour
     {
         hasWon = true;
         // anything else here
+        // TO DO: temporary UI Congrats before updating playerPrefs and reloading level.
+
     }
     public static void toggleTime()
     {

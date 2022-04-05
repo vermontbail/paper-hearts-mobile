@@ -16,6 +16,7 @@ TagManager:
   - Enemy
   - BossHead
   - BossPart
+  - Unbreakable
   layers:
   - Default
   - TransparentFX
