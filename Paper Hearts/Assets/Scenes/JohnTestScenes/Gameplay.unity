@@ -1202,17 +1202,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c9119bb1267d54e893c1b104b0953b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalScore: 0
   levelPrefabs:
   - {fileID: 5702466158948971379, guid: abb1e5951c89678428e1ae52c342756c, type: 3}
   - {fileID: 4453432593279197903, guid: dd203e28060bd9248b80291b05f050d3, type: 3}
   - {fileID: 4263148336206382522, guid: d867d7bf95a5303498a43f4172f7f4bc, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5971077986412816672, guid: 23da64c1bcfa70344bec1ff2c7e251d8, type: 3}
+  - {fileID: 5915883251599918009, guid: 31943fd55a386ce40976f27d65d87b22, type: 3}
+  - {fileID: 2395670791537050141, guid: 06c609980c534f743a62fe1348ff910a, type: 3}
+  - {fileID: 4325723243162663862, guid: 7b445962a8d656f4b8f06423a37bb742, type: 3}
+  - {fileID: 4445025525143173329, guid: f74e3d82a622fe346a69befbdb02adee, type: 3}
+  - {fileID: 3666480250963732304, guid: 20ac6c923a2a25a42b14d12dd7495eb5, type: 3}
+  - {fileID: 1258692753036896417, guid: a020cdabdbcc40a43a9f30d5a1c42ce1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!4 &1502531001
