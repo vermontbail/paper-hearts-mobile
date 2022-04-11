@@ -25,6 +25,16 @@ public class PowerUpScript : MonoBehaviour
         box = GetComponent<BoxCollider2D>();
         circle = GetComponent<CircleCollider2D>();
         Physics2D.IgnoreCollision(box, GameObject.Find("Player").GetComponent<BoxCollider2D>());
+        Physics2D.IgnoreCollision(box, GameObject.Find("Heart").GetComponent<CircleCollider2D>());
+        try
+        {
+            // also try and ignore second heart
+            Physics2D.IgnoreCollision(box, GameObject.Find("Heart(Clone)").GetComponent<CircleCollider2D>());
+        }
+        catch
+        {
+            Debug.Log("second heart not found");
+        }
     }
 
     // Update is called once per frame

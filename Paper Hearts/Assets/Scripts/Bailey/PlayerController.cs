@@ -61,6 +61,9 @@ public class PlayerController : MonoBehaviour
     private bool lastMovedRight = true;
     private bool attackStarted = false;
     private bool attackSwingingRight = false;
+    private const float attackInvulnDuration = 0.25f;
+    private const float attackInvulnCooldown = 2;
+    private float attackInvulnTimer = 0;
 
     // sliding
     private bool isSliding = false;
@@ -126,6 +129,13 @@ public class PlayerController : MonoBehaviour
             // check for first side
             if (!attackStarted)
             {
+                // give attack start invuln
+                if (attackInvulnTimer <= 0)
+                {
+                    currentInvuln = attackInvulnDuration;
+                    attackInvulnTimer = attackInvulnCooldown;
+                }
+
                 // start the cycle, first move the hitbox to position
                 attackHb.GetComponent<SpriteRenderer>().enabled = true;
                 attackHb.GetComponent<CapsuleCollider2D>().enabled = true;
@@ -413,7 +423,7 @@ public class PlayerController : MonoBehaviour
     }
     public void TakeDamage()
     {
-        if (currentInvuln <= 0)
+        if (currentInvuln <= 0 && !isSliding)
         {
             health--;
             if (health <= 0)
@@ -466,6 +476,10 @@ public class PlayerController : MonoBehaviour
         if (currentStun > 0)
         {
             currentStun -= Time.deltaTime;
+        }
+        if (attackInvulnTimer > 0)
+        {
+            attackInvulnTimer -= Time.deltaTime;
         }
 
         // increase time spent in the powerup state

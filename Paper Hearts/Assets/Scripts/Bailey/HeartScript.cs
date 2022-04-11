@@ -49,7 +49,7 @@ public class HeartScript : MonoBehaviour
             heartClone.GetComponent<HeartScript>().isClone = true;
 
             // DEBUG TO differentiate CLONED HEART, NEW ASSET FUTURE?
-            heartClone.GetComponent<SpriteRenderer>().color = Color.grey;
+            heartClone.GetComponent<SpriteRenderer>().color = Color.yellow;
 
             // alter tractory to opposite direction
             heartClone.GetComponent<Rigidbody2D>().velocity = new Vector2(-rb.velocity.x, -rb.velocity.y);
@@ -158,6 +158,10 @@ public class HeartScript : MonoBehaviour
             // increment score
             FindObjectOfType<GameManager>().AddScore();
         }
+        if (col.transform.tag == "EnemyProjectile")
+        {
+            Destroy(col.gameObject);
+        }
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -180,7 +184,10 @@ public class HeartScript : MonoBehaviour
         }
         if (col.transform.tag == "Player")
         {
-            col.transform.GetComponent<PlayerController>().TakeDamage();
+            if (!isClone)
+            {
+                col.transform.GetComponent<PlayerController>().TakeDamage();
+            }
         }
         if (col.transform.tag == "Enemy")
         {
