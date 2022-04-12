@@ -131,11 +131,15 @@ public class GameManager : MonoBehaviour
     public void LevelComplete()
     {
         hasWon = true;
-        if(PlayerPrefs.GetInt(CURRENT_LEVEL) < 12)
+        if(PlayerPrefs.GetInt(CURRENT_LEVEL) < 10)
         {
             PlayerPrefs.SetInt(CURRENT_LEVEL, PlayerPrefs.GetInt(CURRENT_LEVEL) + 1);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             gameplayStarting = true;
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu");
         }
         // anything else here
         // TO DO: temporary UI Congrats before updating playerPrefs and reloading level.
