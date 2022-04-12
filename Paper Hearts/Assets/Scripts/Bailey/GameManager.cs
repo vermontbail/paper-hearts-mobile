@@ -61,13 +61,14 @@ public class GameManager : MonoBehaviour
             {
                 GameObject layout = Instantiate(levelPrefabs[PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) - 1]);
                 layout.transform.position = new Vector3(GameObject.Find("Main Camera").transform.position.x, GameObject.Find("Main Camera").transform.position.y, 0);
-                foreach (Transform child in transform)
+                foreach (Transform child in layout.transform)
                 {
                     if (child.tag != "Unbreakable")
                     {
                         totalScore++;
                     }
                 }
+                Debug.Log("current score to reach: " + totalScore);
             }
         }
         catch (NullReferenceException)
