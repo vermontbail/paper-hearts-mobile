@@ -181,8 +181,7 @@ public class TutorialManager : MonoBehaviour
                 tutState = TutorialState.complete;
                 break;
             case TutorialState.complete:
-                sceneManager.LoadScene("Gameplay");
-                PlayerPrefs.SetInt(GameManager.CURRENT_LEVEL, 1);
+                sceneManager.LoadLevel1();
                 break;
             default:
                 Debug.Log("Tutorial advanced without advance case. Enum: " + tutState);

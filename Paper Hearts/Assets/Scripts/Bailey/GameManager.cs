@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -130,6 +131,12 @@ public class GameManager : MonoBehaviour
     public void LevelComplete()
     {
         hasWon = true;
+        if(PlayerPrefs.GetInt(CURRENT_LEVEL) < 12)
+        {
+            PlayerPrefs.SetInt(CURRENT_LEVEL, PlayerPrefs.GetInt(CURRENT_LEVEL) + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            gameplayStarting = true;
+        }
         // anything else here
         // TO DO: temporary UI Congrats before updating playerPrefs and reloading level.
 

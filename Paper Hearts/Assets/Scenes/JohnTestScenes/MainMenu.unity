@@ -136,12 +136,12 @@ GameObject:
   - component: {fileID: 235688173}
   - component: {fileID: 235688172}
   m_Layer: 5
-  m_Name: Button
+  m_Name: LevelSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &235688171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1044,7 +1044,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3437882485642283825}
         m_TargetAssemblyTypeName: ToNewScene, Assembly-CSharp
-        m_MethodName: LoadLevel1
+        m_MethodName: LoadTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
