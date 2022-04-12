@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
         if (player != null)
         {
 
-            if (runGame)
+            if (runGame && Time.timeScale > 0)
             {
                 // check keyboard input
                 KeyboardInput();
