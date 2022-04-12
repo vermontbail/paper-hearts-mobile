@@ -209,7 +209,8 @@ public class PlayerController : MonoBehaviour
         {
 
             // change slide attack transform
-            myAnimator.SetBool("isSliding", true);
+            myAnimator.SetBool("isKicking", true);
+            //myAnimator.SetBool("isSliding", true);
             slideAttackHb.transform.localScale = new Vector2(slideTimer / -(2 * slideAttackDuration) + 1f, slideTimer / (2 * slideAttackDuration) + 1f);
 
 
@@ -231,6 +232,7 @@ public class PlayerController : MonoBehaviour
         {
 
             // movement
+            //myAnimator.SetBool("isKicking", true);
             myAnimator.SetBool("isSliding", true);
             switch (lastMovedRight)
             {
@@ -267,6 +269,7 @@ public class PlayerController : MonoBehaviour
         else // reset
         {
             myAnimator.SetBool("isSliding", false);
+            myAnimator.SetBool("isKicking", false);
             isSliding = false;
             slideAttacking = false;
             slideTimer = 0f;
