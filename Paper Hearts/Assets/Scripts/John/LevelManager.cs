@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI prompt;
     //Private vars
     private int countdownCounter = 0;
-    private float countdownTimeThird = 30f; //Make the time 1/3 of how long, in frames, you want the player to wait before playing.
+    private float countdownTimeThird = 90f; //Make the time 1/3 of how long, in frames, you want the player to wait before playing.
     private float countdown = 0f;
 
     // Start is called before the first frame update
@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
             Debug.Log("Did not find score text.");
         }
         //End DEBUG
+        Application.targetFrameRate = 60;
         string levelString = "Level: " + PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL, -1);
         level.text = levelString;
     }
@@ -44,7 +45,7 @@ public class LevelManager : MonoBehaviour
             GameManager.gameplayStarting = false;
             GameManager.runGame = false;
             prompt.text = "3";
-            countdown = countdownTimeThird;
+            countdown = countdownTimeThird / 3;
             countdownCounter = 0;
         }
         if (!GameManager.runGame || countdownCounter == 3)
@@ -53,7 +54,7 @@ public class LevelManager : MonoBehaviour
         }
         if (countdownCounter < 4 && countdown <= 0f)
         {
-            countdown = countdownTimeThird;
+            countdown = countdownTimeThird / 3;
             countdownCounter++;
             if (countdownCounter < 3)
             {
@@ -67,11 +68,12 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
-                prompt.text = "Press spacebar to advance level.";
+                //prompt.text = "Press spacebar to advance level.";
+                prompt.text = "";
             }
         }
         //***************************DEBUG*********************
-        if (Input.GetKeyDown(KeyCode.Space) && GameManager.runGame)
+        /*if (Input.GetKeyDown(KeyCode.Space) && GameManager.runGame)
         {
             GameManager.gameplayStarting = true;
             if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) != GameManager.highestLevel)
@@ -88,7 +90,7 @@ public class LevelManager : MonoBehaviour
                 }
                 PlayerPrefs.SetInt(GameManager.LEVEL_CHANGE, 1);
             }
-        }
+        }*/
 
         if (PlayerPrefs.GetInt(GameManager.LEVEL_CHANGE, 0) != 0)
         {

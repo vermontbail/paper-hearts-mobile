@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JohnTestScenes/LevelSelect.unity
     guid: cc0df0a83515bef4f856d9afec4eb51f
+  - enabled: 1
+    path: Assets/Scenes/BaileyTestScenes/BaileyTesting 1.unity
+    guid: 21ecc4955ac4b574383c2d15f30b61e5
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: b16846342bade5a45bfa0b4416d78192, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: c048a665303190f4b900e6e5dab03449, type: 2}

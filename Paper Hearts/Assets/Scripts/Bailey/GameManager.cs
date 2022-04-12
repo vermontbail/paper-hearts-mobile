@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     public static string LEVEL_CHANGE = "levelChanged";
     public static string GAMEPLAY_SCENE = "Gameplay"; //Name of the scene where gameplay takes place.
     //Public gameplay variables
-    public static bool gameplayStarting = false;
+    public static bool gameplayStarting = true;
     public static bool runGame = true;
     public static int highestLevel = 12; //Somewhat a magic number, change this if level numbers change.
     void Start()
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
             catch
             {
                 Debug.Log("No Tutorial Found");
-                totalScore = 1337;
+                totalScore = 3;
             }
             Debug.Log("totalScore: " + totalScore);
         }
