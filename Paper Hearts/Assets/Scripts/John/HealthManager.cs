@@ -19,31 +19,37 @@ public class HealthManager : MonoBehaviour
 
     public void SetHealth(int HP)
     {
-        while(transform.childCount > 0) //Clear all current health
+        if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) != 0)
         {
-            Destroy(transform.GetChild(0));
-        }
-        for(int a = 0; a < HP; a++)
-        {
-            if(a == 0)
+            while (transform.childCount > 0) //Clear all current health
             {
-                Debug.Log("Heart placed at: (" + transform.position + ")");
-                Instantiate(heartPrefab, transform.position, Quaternion.identity, transform);
+                Destroy(transform.GetChild(0));
             }
-            else
+            for (int a = 0; a < HP; a++)
             {
-                Debug.Log("Heart placed at: (" + transform.position + ")");
-                Instantiate(heartPrefab, new Vector3(transform.position.x + (1.1f * a), transform.position.y, transform.position.z), Quaternion.identity, transform);
+                if (a == 0)
+                {
+                    Debug.Log("Heart placed at: (" + transform.position + ")");
+                    Instantiate(heartPrefab, transform.position, Quaternion.identity, transform);
+                }
+                else
+                {
+                    Debug.Log("Heart placed at: (" + transform.position + ")");
+                    Instantiate(heartPrefab, new Vector3(transform.position.x + (1.1f * a), transform.position.y, transform.position.z), Quaternion.identity, transform);
+                }
             }
         }
     }
 
     public void TakeDamage()
     {
-        Destroy(transform.GetChild(transform.childCount - 1).gameObject);
-        if(transform.childCount == 0)
+        if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) != 0)
         {
-            //Handle death here. or dont.
+            Destroy(transform.GetChild(transform.childCount - 1).gameObject);
+            if (transform.childCount == 0)
+            {
+                //Handle death here. or dont.
+            }
         }
     }
 }

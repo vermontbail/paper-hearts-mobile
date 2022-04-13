@@ -49,11 +49,13 @@ public class GameManager : MonoBehaviour
     public static int highestLevel = 12; //Somewhat a magic number, change this if level numbers change.
     void Start()
     {
-        hm = FindObjectOfType<HealthManager>();
-        hm.SetHealth(baseHealth);
+        if(PlayerPrefs.GetInt(CURRENT_LEVEL) != 0)
+        {
+            hm = FindObjectOfType<HealthManager>();
+            hm.SetHealth(baseHealth);
+        }
         player = FindObjectOfType<PlayerController>();
-
-        if(!GameObject.Find("TutorialManager"))
+        if (!GameObject.Find("TutorialManager"))
         {
             TutorialManager.tutState = TutorialManager.TutorialState.complete;
         }
@@ -72,22 +74,18 @@ public class GameManager : MonoBehaviour
                         totalScore++;
                     }
                 }
-                Debug.Log("current score to reach: " + totalScore);
             }
         }
         catch (NullReferenceException)
         {
-            Debug.Log("Scoreblocks not found. Using number of scoreblocks from tutorial...");
             try
             {
                 totalScore = TutorialManager.blockParent.transform.childCount; //This error should only occur in the tutorial due to level creation order.
             }
             catch
             {
-                Debug.Log("No Tutorial Found");
-                totalScore = 3;
+                totalScore = 4;
             }
-            Debug.Log("totalScore: " + totalScore);
         }
 
 
@@ -103,7 +101,6 @@ public class GameManager : MonoBehaviour
     {
         if (player != null)
         {
-
             if (runGame && Time.timeScale > 0)
             {
                 // check keyboard input

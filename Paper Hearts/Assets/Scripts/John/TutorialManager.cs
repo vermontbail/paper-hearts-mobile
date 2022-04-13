@@ -81,7 +81,7 @@ public class TutorialManager : MonoBehaviour
     private static void ResetTimer(float readTime)
     {
         timerActive = true;
-        timer = readTime * 10f; //Change back to 3 when done debugging.
+        timer = readTime * 10f; 
         GameManager.toggleTime();
     }
 
@@ -157,6 +157,7 @@ public class TutorialManager : MonoBehaviour
                 Circle(enemy.transform.position);
                 prompt.text = "";
                 leftPrompt.text = "This is an enemy. Hit them with the heart to defeat them.";
+                GameObject.FindObjectOfType<GameManager>().totalScore = 5;
                 enemy.SetActive(true);
                 tutState = TutorialState.enemy;
                 break;

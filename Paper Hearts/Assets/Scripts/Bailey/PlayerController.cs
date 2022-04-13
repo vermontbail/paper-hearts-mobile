@@ -428,7 +428,11 @@ public class PlayerController : MonoBehaviour
     {
         if (currentInvuln <= 0 && !isSliding)
         {
-            FindObjectOfType<HealthManager>().TakeDamage();
+            if (PlayerPrefs.GetInt(GameManager.CURRENT_LEVEL) != 0)
+            {
+                FindObjectOfType<HealthManager>().TakeDamage();
+                
+            }
             health--;
             if (health <= 0)
             {
