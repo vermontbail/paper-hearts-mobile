@@ -131,6 +131,7 @@ public class EnemyScript : MonoBehaviour
                 TutorialManager.AdvanceTutorial();
             }
             this.transform.parent.gameObject.SetActive(false);
+            FindObjectOfType<GameManager>().AddScore();
         }
         else
         {
