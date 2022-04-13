@@ -428,6 +428,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentInvuln <= 0 && !isSliding)
         {
+            FindObjectOfType<HealthManager>().TakeDamage();
             health--;
             if (health <= 0)
             {

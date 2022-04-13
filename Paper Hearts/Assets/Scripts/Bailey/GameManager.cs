@@ -8,8 +8,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
+    HealthManager hm;
     PlayerController player;
     public int totalScore = 0;
+    private int baseHealth = 3; //Change to balance health.
     private int currentScore = 0;
     private bool hasWon = false;
     private TextMeshProUGUI promptText;
@@ -47,7 +49,8 @@ public class GameManager : MonoBehaviour
     public static int highestLevel = 12; //Somewhat a magic number, change this if level numbers change.
     void Start()
     {
-
+        hm = FindObjectOfType<HealthManager>();
+        hm.SetHealth(baseHealth);
         player = FindObjectOfType<PlayerController>();
 
         if(!GameObject.Find("TutorialManager"))
