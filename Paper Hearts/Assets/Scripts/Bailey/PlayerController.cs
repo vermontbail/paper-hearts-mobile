@@ -439,6 +439,7 @@ public class PlayerController : MonoBehaviour
                 // get reference to game manager to help end game
                 // placeholder reset
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                GameManager.gameplayStarting = true;
             }
             else
             {
