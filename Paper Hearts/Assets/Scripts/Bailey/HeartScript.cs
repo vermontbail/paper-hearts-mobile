@@ -9,7 +9,7 @@ public class HeartScript : MonoBehaviour
     BoxCollider2D box;
 
     const float totalCloneTime = 10f;
-    float currentTimer = 0f;
+    public float currentTimer = 0f;
     GameObject heartClone = null;
     public bool isClone = false;
 
@@ -53,6 +53,10 @@ public class HeartScript : MonoBehaviour
 
             // alter tractory to opposite direction
             heartClone.GetComponent<Rigidbody2D>().velocity = new Vector2(-rb.velocity.x, -rb.velocity.y);
+        }
+        else
+        {
+            heartClone.GetComponent<HeartScript>().currentTimer = 0f;
         }
     }
 
