@@ -83,8 +83,8 @@ public class PlayerController : MonoBehaviour
     private float cardAttackTimer = 0f;
     private float cardAttackCooldown = 0.4f;
     private const float bombDuration = 10f;
-    private const float cardDuration = 10f;
-    private const float chargeDuration = 10f;
+    private const float cardDuration = 20f;
+    private const float chargeDuration = 15f;
     private float powerUpTimer = 0f;
 
     // damage
