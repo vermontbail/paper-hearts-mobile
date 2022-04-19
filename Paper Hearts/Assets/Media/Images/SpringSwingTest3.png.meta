@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7c4426f1b14e70d499794258857a0388
+guid: 06f1082aa8c43d141af65239cb2ca8b0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -128,148 +128,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteSwingSheet_0
+      name: SpringSwingTest3_0
       rect:
         serializedVersion: 2
         x: 59
-        y: 1
+        y: 0
         width: 162
-        height: 271
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6}
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6b6ba5069e01cd43987085f3e4f571e
-      internalID: -1953749671
+      spriteID: 3f42a44d80e23ca43bf814bcd205041f
+      internalID: 1652920525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSwingSheet_1
+      name: SpringSwingTest3_1
       rect:
         serializedVersion: 2
         x: 380
         y: 0
         width: 201
-        height: 271
-      alignment: 9
-      pivot: {x: 0.4, y: 0.6}
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd550122918f7d44d9ae1c10b737901a
-      internalID: 314681287
+      spriteID: c521f85a9195d514eb2b22529cf6d548
+      internalID: -1339667062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSwingSheet_2
+      name: SpringSwingTest3_2
       rect:
         serializedVersion: 2
         x: 699
         y: 0
         width: 232
-        height: 271
-      alignment: 9
-      pivot: {x: 0.35, y: 0.6}
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9e4829a07d5c5e4a8fc72ee0d47fca7
-      internalID: 1437282046
+      spriteID: 740707153d8856948beb196b79e030c6
+      internalID: 784945095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSwingSheet_3
+      name: SpringSwingTest3_3
       rect:
         serializedVersion: 2
         x: 989
         y: 0
         width: 192
-        height: 271
-      alignment: 9
-      pivot: {x: 0.6, y: 0.6}
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e6f11078d58c014085251c4fba0acff
-      internalID: 1992989790
+      spriteID: 07fcfdc41a61c80488f6bdd98912dc9f
+      internalID: -2102614839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSwingSheet_4
+      name: SpringSwingTest3_4
       rect:
         serializedVersion: 2
         x: 1309
         y: 0
         width: 192
-        height: 271
-      alignment: 9
-      pivot: {x: 0.6, y: 0.6}
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b180fa7a02f9d742bc9252f72ebb4b0
-      internalID: -1477510834
+      spriteID: 5d362ce34d7541848b1c4a74b5205906
+      internalID: 1442888062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSwingSheet_5
+      name: SpringSwingTest3_5
       rect:
         serializedVersion: 2
         x: 1659
         y: 0
         width: 232
-        height: 271
-      alignment: 9
-      pivot: {x: 0.35, y: 0.6}
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bb0d0d8c721bde4d973a2113d3f51e7
-      internalID: -1531966754
+      spriteID: 0f2577731fd62c8478acf3aa11302a9b
+      internalID: -190487981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSwingSheet_6
+      name: SpringSwingTest3_6
       rect:
         serializedVersion: 2
-        x: 1982
+        x: 1980
         y: 0
         width: 160
-        height: 271
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6}
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 372535a9ca0fbf141a06d6ea5f8a5d5d
-      internalID: -483128589
+      spriteID: 2a2346f4ad11db84583d86121d1268c0
+      internalID: -2051612944
       vertices: []
       indices: 
       edges: []
@@ -277,7 +277,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 94fdd354a3d8b7743bd0f8517a0a7d5f
+    spriteID: e630296c75fdd004fb7d262a96a2b5cc
     internalID: 0
     vertices: []
     indices: 
@@ -285,13 +285,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpriteSwingSheet_4: -1477510834
-      SpriteSwingSheet_1: 314681287
-      SpriteSwingSheet_3: 1992989790
-      SpriteSwingSheet_5: -1531966754
-      SpriteSwingSheet_6: -483128589
-      SpriteSwingSheet_2: 1437282046
-      SpriteSwingSheet_0: -1953749671
+      SpringSwingTest3_4: 1442888062
+      SpringSwingTest3_1: -1339667062
+      SpringSwingTest3_0: 1652920525
+      SpringSwingTest3_6: -2051612944
+      SpringSwingTest3_2: 784945095
+      SpringSwingTest3_3: -2102614839
+      SpringSwingTest3_5: -190487981
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

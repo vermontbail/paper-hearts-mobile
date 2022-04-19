@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -131,12 +131,12 @@ TextureImporter:
       name: SpriteWalk-SheetNew_0
       rect:
         serializedVersion: 2
-        x: 18
+        x: 22
         y: 0
-        width: 284
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 282
+        height: 271
+      alignment: 9
+      pivot: {x: 0.5, y: 0.57195574}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,12 +152,12 @@ TextureImporter:
       name: SpriteWalk-SheetNew_1
       rect:
         serializedVersion: 2
-        x: 338
-        y: 0
-        width: 284
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 339
+        y: 1
+        width: 282
+        height: 271
+      alignment: 9
+      pivot: {x: 0.5, y: 0.57195574}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,12 +173,12 @@ TextureImporter:
       name: SpriteWalk-SheetNew_2
       rect:
         serializedVersion: 2
-        x: 658
+        x: 659
         y: 0
-        width: 304
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 302
+        height: 261
+      alignment: 9
+      pivot: {x: 0.5, y: 0.59386975}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,12 +194,12 @@ TextureImporter:
       name: SpriteWalk-SheetNew_3
       rect:
         serializedVersion: 2
-        x: 978
+        x: 979
         y: 0
-        width: 304
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 302
+        height: 261
+      alignment: 9
+      pivot: {x: 0.5, y: 0.59386975}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: SpriteWalk-SheetNew_4
       rect:
         serializedVersion: 2
-        x: 1298
+        x: 1299
         y: 0
-        width: 284
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 282
+        height: 271
+      alignment: 9
+      pivot: {x: 0.5, y: 0.57195574}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,12 +236,12 @@ TextureImporter:
       name: SpriteWalk-SheetNew_5
       rect:
         serializedVersion: 2
-        x: 1618
+        x: 1619
         y: 0
-        width: 284
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 282
+        height: 271
+      alignment: 9
+      pivot: {x: 0.5, y: 0.57195574}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,12 +257,12 @@ TextureImporter:
       name: SpriteWalk-SheetNew_6
       rect:
         serializedVersion: 2
-        x: 1938
+        x: 1939
         y: 0
-        width: 274
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 272
+        height: 261
+      alignment: 9
+      pivot: {x: 0.5, y: 0.59386975}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,12 +278,12 @@ TextureImporter:
       name: SpriteWalk-SheetNew_7
       rect:
         serializedVersion: 2
-        x: 2258
-        y: 0
-        width: 274
-        height: 320
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2262
+        y: 3
+        width: 272
+        height: 261
+      alignment: 9
+      pivot: {x: 0.5, y: 0.59386975}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

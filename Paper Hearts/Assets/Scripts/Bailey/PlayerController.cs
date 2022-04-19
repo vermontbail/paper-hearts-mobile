@@ -164,9 +164,13 @@ public class PlayerController : MonoBehaviour
                 // loop through attacking
                 if (currentPowerUp != PowerUp.Charge)
                 {
+                    myAnimator.speed = 1f;
                     attackSwingSpeed = baseAttackSwingSpeed;
                 }
-                else { attackSwingSpeed = baseAttackSwingSpeed * 1.5f; }
+                else {
+                    myAnimator.speed = 1.5f;
+                    attackSwingSpeed = baseAttackSwingSpeed * 1.5f; 
+                }
 
                 switch (attackSwingingRight)
                 {
