@@ -53,6 +53,7 @@ public class HeartScript : MonoBehaviour
 
             // alter tractory to opposite direction
             heartClone.GetComponent<Rigidbody2D>().velocity = new Vector2(-rb.velocity.x, -rb.velocity.y);
+            heartClone.GetComponent<HeartScript>().currentTimer = 0f;
         }
         else
         {
