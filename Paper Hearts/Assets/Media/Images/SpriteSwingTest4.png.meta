@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7c4426f1b14e70d499794258857a0388
+guid: 4a4c263bac1260a4fa2f54aa4abf7652
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -128,148 +128,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteSwingSheet_0
+      name: SpriteSwingTest4_0
       rect:
         serializedVersion: 2
         x: 59
-        y: 1
+        y: 9
         width: 162
-        height: 271
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6}
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6b6ba5069e01cd43987085f3e4f571e
-      internalID: -1953749671
+      spriteID: 162ede8327ff12740ab1626d00fb874b
+      internalID: 280789655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSwingSheet_1
+      name: SpriteSwingTest4_1
       rect:
         serializedVersion: 2
         x: 380
-        y: 0
+        y: 9
         width: 201
-        height: 271
-      alignment: 9
-      pivot: {x: 0.4, y: 0.6}
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd550122918f7d44d9ae1c10b737901a
-      internalID: 314681287
+      spriteID: 7de94dd5dc7c5f5468dc6cef343ea2e7
+      internalID: -1442911093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSwingSheet_2
+      name: SpriteSwingTest4_2
       rect:
         serializedVersion: 2
         x: 699
-        y: 0
+        y: 9
         width: 232
-        height: 271
-      alignment: 9
-      pivot: {x: 0.35, y: 0.6}
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9e4829a07d5c5e4a8fc72ee0d47fca7
-      internalID: 1437282046
+      spriteID: 51ffa2a0ab3213c4aa163cdf0cafc508
+      internalID: 1543128065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSwingSheet_3
+      name: SpriteSwingTest4_3
       rect:
         serializedVersion: 2
         x: 989
-        y: 0
+        y: 9
         width: 192
-        height: 271
-      alignment: 9
-      pivot: {x: 0.6, y: 0.6}
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e6f11078d58c014085251c4fba0acff
-      internalID: 1992989790
+      spriteID: 571da61710d269a4f8d6dbf1a4dac208
+      internalID: 1097361401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSwingSheet_4
+      name: SpriteSwingTest4_4
       rect:
         serializedVersion: 2
         x: 1309
-        y: 0
+        y: 9
         width: 192
-        height: 271
-      alignment: 9
-      pivot: {x: 0.6, y: 0.6}
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b180fa7a02f9d742bc9252f72ebb4b0
-      internalID: -1477510834
+      spriteID: d923482cc117d484283bc9006e9d9004
+      internalID: 1229986977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSwingSheet_5
+      name: SpriteSwingTest4_5
       rect:
         serializedVersion: 2
         x: 1659
-        y: 0
+        y: 9
         width: 232
-        height: 271
-      alignment: 9
-      pivot: {x: 0.35, y: 0.6}
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bb0d0d8c721bde4d973a2113d3f51e7
-      internalID: -1531966754
+      spriteID: 70a36ecdbf639394b8a54447019afd0e
+      internalID: 331447999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSwingSheet_6
+      name: SpriteSwingTest4_6
       rect:
         serializedVersion: 2
-        x: 1982
-        y: 0
+        x: 1980
+        y: 9
         width: 160
-        height: 271
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6}
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 372535a9ca0fbf141a06d6ea5f8a5d5d
-      internalID: -483128589
+      spriteID: 784e21faba9382d42bf0d45863073bbe
+      internalID: 489544876
       vertices: []
       indices: 
       edges: []
@@ -277,7 +277,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 94fdd354a3d8b7743bd0f8517a0a7d5f
+    spriteID: b059e0f34817d8441b9c952a767039f9
     internalID: 0
     vertices: []
     indices: 
@@ -285,13 +285,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpriteSwingSheet_4: -1477510834
-      SpriteSwingSheet_1: 314681287
-      SpriteSwingSheet_3: 1992989790
-      SpriteSwingSheet_5: -1531966754
-      SpriteSwingSheet_6: -483128589
-      SpriteSwingSheet_2: 1437282046
-      SpriteSwingSheet_0: -1953749671
+      SpriteSwingTest4_1: -1442911093
+      SpriteSwingTest4_0: 280789655
+      SpriteSwingTest4_5: 331447999
+      SpriteSwingTest4_4: 1229986977
+      SpriteSwingTest4_3: 1097361401
+      SpriteSwingTest4_2: 1543128065
+      SpriteSwingTest4_6: 489544876
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
