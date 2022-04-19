@@ -192,10 +192,6 @@ public class GameManager : MonoBehaviour
             if (TutorialManager.tutState > TutorialManager.TutorialState.learnSlide)
             {
                 player.SlideAttack();
-                if (TutorialManager.tutState == TutorialManager.TutorialState.learnKick)
-                {
-                    TutorialManager.AdvanceTutorial();
-                }
             }
         }
 

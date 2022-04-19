@@ -19,6 +19,7 @@ public class TutorialManager : MonoBehaviour
     static GameObject heart;
     static GameObject tutCircle;
     static ToNewScene sceneManager;
+    static GameObject advanceButton;
     public enum TutorialState
     {
         welcome,
@@ -50,13 +51,14 @@ public class TutorialManager : MonoBehaviour
         enemy.SetActive(false);
         tutCircle = GameObject.Find("tutCircle");
         tutCircle.SetActive(false);
-        prompt.text = "Welcome to Paper Hearts!";
-        ResetTimer(120f);
+        prompt.text = "Welcome to Paper Hearts! Tap to advance.";
         tutState = TutorialState.welcome;
         heart = GameObject.Find("Heart");
         heart.SetActive(false);
         blockParent = GameObject.Find("Scoreblocks");
         blockParent.SetActive(false);
+        advanceButton = GameObject.Find("AdvanceTutorial");
+        GameManager.toggleTime();
     }
 
     // Update is called once per frame
@@ -78,7 +80,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
     //When resetting the time, reset it for enough time (in frames (60 frames = 1 second)) for the player to read the text 3 times.
-    private static void ResetTimer(float readTime)
+    public static void ResetTimer(float readTime)
     {
         timerActive = true;
         timer = readTime * 10f; 
@@ -95,6 +97,14 @@ public class TutorialManager : MonoBehaviour
     public static void AdvanceTutorial()
     {
         timerActive = false;
+        if(advanceButton.activeSelf)
+        {
+            advanceButton.SetActive(false);
+        }
+        if(Time.timeScale != 1) //Unpause time if it's paused.
+        {
+            Time.timeScale = 1;
+        }
         switch(tutState)
         {
             case TutorialState.welcome:
@@ -122,22 +132,25 @@ public class TutorialManager : MonoBehaviour
                 Circle(heart.transform.position);
                 prompt.text = "";
                 rightPrompt.text = "This is the heart. Use it to break blocks.";
-                ResetTimer(105f);
+                advanceButton.SetActive(true);
+                GameManager.toggleTime();
                 tutState = TutorialState.damage;
                 break;
             case TutorialState.damage:
                 rightPrompt.text = "The heart is not yours to keep, so you will take damage if it hits you.";
-                ResetTimer(150f);
+                advanceButton.SetActive(true);
+                GameManager.toggleTime();
                 tutState = TutorialState.heart1;
                 break;
             case TutorialState.heart1:
                 rightPrompt.text = "You can launch the heart by swinging or kicking.";
-                ResetTimer(120f);
-                timerActive = true;
+                advanceButton.SetActive(true);
+                GameManager.toggleTime();
                 tutState = TutorialState.heart2;
                 break;
             case TutorialState.heart2:
                 rightPrompt.text = "Use the heart to break these two blocks, and activate the panel in the middle.";
+                tutCircle.SetActive(false);
                 blockParent.SetActive(true);
                 for(int a = 0; a < blockParent.transform.childCount; a++)
                 {
@@ -150,11 +163,11 @@ public class TutorialManager : MonoBehaviour
             case TutorialState.blocks:
                 rightPrompt.text = "";
                 prompt.text = "Well done!";
-                ResetTimer(90f);
+                advanceButton.SetActive(true);
+                GameManager.toggleTime();
                 tutState = TutorialState.blocks2;
                 break;
             case TutorialState.blocks2:
-                Circle(enemy.transform.position);
                 prompt.text = "";
                 leftPrompt.text = "This is an enemy. Hit them with the heart to defeat them.";
                 GameObject.FindObjectOfType<GameManager>().totalScore = 5;
@@ -166,18 +179,21 @@ public class TutorialManager : MonoBehaviour
                 pub.gameObject.SetActive(true);
                 pub.CreatePowerUp();
                 leftPrompt.text = "This is a powerup. Different powerups have different abilities. They will drop from blocks.";
-                ResetTimer(240f);
+                advanceButton.SetActive(true);
+                GameManager.toggleTime();
                 tutState = TutorialState.powerups;
                 break;
             case TutorialState.powerups:
                 leftPrompt.text = "Powerups drop from colored blocks. We won't go deep into them here, but keep a lookout. Some powerups only activate when you attack, or kick.";
-                ResetTimer(300f);
+                advanceButton.SetActive(true);
+                GameManager.toggleTime();
                 tutState = TutorialState.powerups2;
                 break;
             case TutorialState.powerups2:
                 leftPrompt.text = "";
                 prompt.text = "Congratulations! You've completed the tutorial. You're all set for Paper Hearts.";
-                ResetTimer(210f);
+                advanceButton.SetActive(true);
+                GameManager.toggleTime();
                 //Go to the first level here.
                 tutState = TutorialState.complete;
                 break;

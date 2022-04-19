@@ -273,6 +273,10 @@ public class PlayerController : MonoBehaviour
             isSliding = false;
             slideAttacking = false;
             slideTimer = 0f;
+            if (TutorialManager.tutState == TutorialManager.TutorialState.learnKick)
+            {
+                TutorialManager.AdvanceTutorial();
+            }
 
             // move slide and slide attack hitbox away
             slideHb.GetComponent<BoxCollider2D>().enabled = false;
